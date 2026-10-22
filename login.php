@@ -64,7 +64,7 @@ if ($user && password_verify($password, $user['password'])) {
     }
 
     if ($user['role'] === 'user') {
-        header('Location: user_dashboard.php');
+        header('Location: userdashboard.php');
         exit();
     }
 
