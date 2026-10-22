@@ -51,7 +51,7 @@ $statement->execute();
 $result = $statement->get_result();
 $user = $result->fetch_assoc();
 
-if ($user && password_verify($password, $user['password'])) {
+if ($user && md5($password == $user['password'])) {
     session_regenerate_id(true);
 
     $_SESSION['user_id'] = (int) $user['id'];
