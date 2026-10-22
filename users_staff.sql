@@ -40,7 +40,7 @@ CREATE TABLE `users_staff` (
 --
 
 INSERT INTO `users_staff` (`id`, `name`, `email`, `password`, `role`) VALUES
-(2, 'victoria shelly', 'victoriaS@staff.org', '396474c1a19951eb7008a6b99c93bd00b2426149', 'staff'),
+(2, 'victoria shelly', 'victoriaS@user.org', '81dc9bdb52d04dc20036dbd8313ed055', 'user'),
 (3, 'megan', 'meganM@staff.org', '1234', 'staff'),
 (4, 'joe', 'jomama@gmail.com', '90cf2dae9ceb83f65076428914937487', 'user');
 
