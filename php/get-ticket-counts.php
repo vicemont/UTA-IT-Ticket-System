@@ -1,28 +1,35 @@
 <?php
+session_start();
+require_once __DIR__ . '/../config.php';
+
 header('Content-Type: application/json');
 header('Cache-Control: no-cache, must-revalidate');
 
-$host = "localhost";
-$db_user = "root";       
-$db_pass = "";           
-$db_name = "uta_support"; 
-
-try {
-    $conn = new PDO("mysql:host=$host;dbname=$db_name;charset=utf8", $db_user, $db_pass);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
-    $open = $conn->query("SELECT COUNT(*) FROM tickets WHERE status = 'open'")->fetchColumn();
-    $progress = $conn->query("SELECT COUNT(*) FROM tickets WHERE status = 'in_progress'")->fetchColumn();
-    $resolved = $conn->query("SELECT COUNT(*) FROM tickets WHERE status IN ('resolved', 'closed')")->fetchColumn();
-
-    echo json_encode([
-        'open'        => (int)$open,
-        'in_progress' => (int)$progress,
-        'resolved'    => (int)$resolved
-    ]);
-
-} catch(PDOException $e) {
-    echo json_encode(['error' => $e->getMessage()]);
+if (!isset($_SESSION['user_id'])) {
+    http_response_code(401);
+    echo json_encode(['error' => 'Not logged in']);
+    exit();
 }
-//not working yet at all
-?>
+
+$userId = (int) $_SESSION['user_id'];
+
+$stmt = $conn->prepare(
+    'SELECT status, COUNT(*) AS total FROM tickets WHERE user_id = ? GROUP BY status'
+);
+$stmt->bind_param('i', $userId);
+$stmt->execute();
+$result = $stmt->get_result();
+
+$counts = ['open' => 0, 'in_progress' => 0, 'resolved' => 0];
+
+while ($row = $result->fetch_assoc()) {
+    if ($row['status'] === 'open') {
+        $counts['open'] += (int) $row['total'];
+    } elseif ($row['status'] === 'in_progress') {
+        $counts['in_progress'] += (int) $row['total'];
+    } elseif ($row['status'] === 'resolved' || $row['status'] === 'closed') {
+        $counts['resolved'] += (int) $row['total'];
+    }
+}
+
+echo json_encode($counts);
