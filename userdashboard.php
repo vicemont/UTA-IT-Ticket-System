@@ -14,18 +14,29 @@ if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'user') {
   <title>UTA IT Support Portal</title>
   <link rel="stylesheet" href="css/userdashboard.css">
   <script src="js/userdashboard.js" defer></script>
+  <script src="js/userdashboard-menu.js"></script>
 </head>
 <body>
     <header class ="topbar">
-        <a class = "brand" href="userdashboard.html" aria-label = "UT IT Support Portal Home">
+        <a class = "brand" href="userdashboard.php" aria-label = "UT IT Support Portal Home">
             <span class ="brand-mark">UTA</span>
             <span><strong>IT Support Portal</strong><small>Student &amp; Faculty Services</small></span>
         </a>
-        <div class="top-actions">
+        <!--hamburger menu-->
+        <div class="top-actions"> 
+            <button id="hamburger" class ="three-lines" type="button">
+                <img src="images/hamburger-menu-icon.png" style="width:5%;height:5%;object-fit:contain;"> 
+            </button>   
+        </div>
+        <!--dropdown menu-->
+        <div class="dropdown-menu" style="display:none;">
+            <!--logout button-->
+            <button id="logoutButton" class ="logout-button" type="button">Logout</button>
+            <!--notifcation button-->
             <button id="notificationsButton" class ="bell-button" type ="button" aria-expanded="false" aria-label="View notifications">
-               <span class="bell-icon">🔔</span>
-               <span id="notifcationsBadge" class="count-badge">0</span>
-            </button>
+                <span class="bell-icon">🔔</span>
+                <span id="notifcationsBadge" class="count-badge">0</span>
+            </button>   
         </div>
     </header>
     

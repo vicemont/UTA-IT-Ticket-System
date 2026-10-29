@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
 }
+
 body {
     margin: 0;
     min-height: 100vh;
@@ -10,49 +11,112 @@ body {
     padding: 20px;
 }
 
+h1 { margin-top: 0; }
+
+label {
+    display: block;
+    margin-top: 18px;
+    margin-bottom: 6px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+}
+
+/* ONE generic button rule, no width or margin */
+button {
+    padding: 12px;
+    border: 0;
+    border-radius: 6px;
+    background-color: #087eae;
+    color: white;
+    cursor: pointer;
+}
+
+/* ---------- top bar ---------- */
 .topbar {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color:  #ffffff;
+    background-color: #ffffff;
     padding: 12px 24px;
     border-bottom: 1px solid #e2e8f0;
 }
-.welcome-row {
+
+.top-actions {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    margin-left: auto;   /* pushes hamburger to the right */
+}
+
+.topbar .three-lines {
+    width: 40px;
+    height: 40px;
+    padding: 6px;
+    margin: 0;
+    background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.topbar .three-lines img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    display: block;
+}
+
+/* ---------- dropdown menu ---------- */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 50;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-menu.show {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.logout-button {
     width: 100%;
 }
 
-/*bell styles below*/
+/* ---------- bell ---------- */
 .bell-button {
-    position: relative; 
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 40px;
     height: 40px;
+    padding: 0;
     background-color: #f1f5f9;
-    border: none;
-    border-radius: 50%; 
-    cursor: pointer;
+    border-radius: 50%;
     transition: background-color 0.2s ease;
-    margin: 0; 
 }
 
-.bell-button:hover {
-    background-color: #e2e8f0;
-}
+.bell-button:hover { background-color: #e2e8f0; }
+.bell-icon { font-size: 18px; }
 
-.bell-icon {
-    font-size: 18px;
-}
 .count-badge {
     position: absolute;
     top: -2px;
     right: -2px;
-    background-color: #ef4444; 
+    background-color: #ef4444;
     color: white;
     font-size: 11px;
     font-weight: bold;
@@ -65,18 +129,13 @@ body {
     justify-content: center;
     border: 2px solid #ffffff;
 }
-/*end of bell styles*/
 
-.top-actions {
+/* ---------- welcome row / ticket form ---------- */
+.welcome-row {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-}
-.login {
-    width: min(90%, 400px);
-    padding: 32px;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px #00000012;
+    width: 100%;
 }
 
 .dropdown {
@@ -84,8 +143,9 @@ body {
     display: inline-block;
     margin-left: auto;
 }
+
 .ticket-form {
-    display: none; 
+    display: none;
     position: absolute;
     top: 100%;
     right: 0;
@@ -98,10 +158,13 @@ body {
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
-.ticket-form.show {
-    display: block;
-}
+.ticket-form.show { display: block; }
 
+.submit-button,
+.cancel-button {
+    width: 100%;
+    margin-top: 12px;
+}
 
 .login {
     width: min(90%, 400px);
@@ -109,32 +172,4 @@ body {
     background: white;
     border-radius: 12px;
     box-shadow: 0 4px 20px #00000012;
-}
-
-h1 {
-    margin-top:  0;
-}
-
-label {
-    display: block;
-    margin-top: 18px;
-    margin-bottom: 6px;
-}
-
-input {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #cbd5e1;
-    border-radius: 6px;
-}
-
-button {
-    width: 100%;
-    margin-top: 22px;
-    padding: 12px;
-    border: 0;
-    border-radius: 6px;
-    background: #087eae;
-    color: white;
-    cursor: pointer;
 }

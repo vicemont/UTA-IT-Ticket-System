@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('Location: ../userdashboard.php');
     exit();
 }
-
+os=34n
 $userId      = (int) $_SESSION['user_id'];   // from the session, never from the form
 $title       = trim($_POST['title'] ?? '');
 $category    = trim($_POST['category'] ?? '');
