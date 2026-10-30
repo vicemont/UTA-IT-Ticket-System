@@ -26,7 +26,7 @@ input, select, textarea {
     border-radius: 6px;
 }
 
-/* ONE generic button rule, no width or margin */
+/*generic button rule, no width or margin */
 button {
     padding: 12px;
     border: 0;
@@ -36,7 +36,7 @@ button {
     cursor: pointer;
 }
 /* ---------- top bar ---------- */
-.topbar #hamburger{
+.topbar {
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -53,11 +53,10 @@ button {
 }
 
 .topbar .three-lines {
-    width: 5px;
-    height: 5px;
+    width: auto;
+    height: auto;
     padding: 6px;
     margin: 0;
-    border-radius: 50%;
     background-color: transparent;
     display: flex;
     align-items: center;
@@ -65,36 +64,65 @@ button {
 }
 
 .topbar .three-lines img {
-    width: 40px;
-    height: 40px;
-    padding: 6px;
-    margin: 0;
-    background: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 24px;
+    height: 24px;
+    display: block;
 }
 
 /* ---------- dropdown menu ---------- */
 .dropdown-menu { 
-    display: none !important;
-    position: absolute !important;
-    top: 100% !important;
-    right: 0 !important;
-    z-index: 50 !important;
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%; /* Sits exactly below the topbar */
+    right: 24px;
+    z-index: 50;
     background: #ffffff;
     border: 1px solid #e2e8f0;
     border-radius: 8px;
-    padding: 12px;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-}
-
-.dropdown-menu.show {
-    display: flex;
+    padding: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    display: none; /* Let JS handle display: flex */
     flex-direction: column;
-    gap: 8px;
+    gap: 12px;
+    min-width: 200px;
 }
 
+.dropdown-menu button {
+    width: 100%;
+    border-radius: 6px;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: 600;
+}
+.dropdown-menu.show {
+    display: block !important; 
+}
+
+.dropdown-menu .logout-button {
+    background-color: #dc2626;
+}
+.dropdown-menu .bell-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f1f5f9;
+    color: #1e293b;
+    width: 100%;
+}
+.dropdown-menu .bell-icon {
+    font-size: 16px;
+}
+
+.dropdown-menu .count-badge {
+    background-color: #dc2626;
+    color: #ffffff;
+    font-size: 11px;
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-weight: bold;
+    display: inline-block;
+    line-height: 1;
+}
 .logout-button {
     width: 100%;
 }

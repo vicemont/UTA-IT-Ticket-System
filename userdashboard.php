@@ -17,21 +17,21 @@ if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'user') {
     <script src="js/userdashboard-menu.js" defer></script>
 </head>
 <body>
-    <header class ="topbar">
-        <a class = "brand" href="userdashboard.php" aria-label = "UTA IT Support Portal Home">
+    <header class ="topbar" style="display: flex; align-items: center; width: 100%; box-sizing: border-box; background-color: #ffffff; padding: 10px 20px;">
+        <a class = "brand" href="userdashboard.php" aria-label = "UTA IT Support Portal Home" style="text-decoration:none;">
             <span class ="brand-mark">UTA</span>
             <span><strong>IT Support Portal</strong><small>Student &amp; Faculty Services</small></span>
         </a>
         <!--hamburger menu-->
-        <div class="top-actions"> 
-            <button id="hamburger" class ="three-lines" type="button">
+        <div class="top-actions" style="margin-left: auto; position: relative;"> 
+            <button id="hamburger" class ="three-lines" type="button" style="cursor: pointer; display: flex; align-items: center; justify-content: center;background-color: #087eae; border: none; border-radius: 8px; padding: 12px;">
                 <img src="images/hamburger-menu-icon.png" width="24" height="24" alt="Menu"> 
             </button>   
         </div>
         <!--dropdown menu-->
-        <div class="dropdown-menu">
+        <div class="dropdown-menu" style="display: none; position: absolute; right: 0; top: 100%; background: white; border: 1px solid #ccc; box-shadow: 0 4px 6px rgba(0,0,0,0.1); padding: 10px; border-radius: 4px; z-index: 1000;">
             <!--logout button-->
-            <button id="logoutButton" class ="logout-button" type="button" aria-expanded="false">Logout</button>
+            <button id="logoutButton" class ="logout-button" type="button">Logout</button>
             <!--notifcation button-->
             <button id="notificationsButton" class ="bell-button" type ="button" aria-expanded="false" aria-label="View notifications">
                 <span class="bell-icon">🔔</span>
