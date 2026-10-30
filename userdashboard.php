@@ -9,29 +9,29 @@ if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'user') {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UTA IT Support Portal</title>
-  <link rel="stylesheet" href="css/userdashboard.css">
-  <script src="js/userdashboard.js" defer></script>
-  <script src="js/userdashboard-menu.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTA IT Support Portal</title>
+    <link rel="stylesheet" href="css/userdashboard.css">
+    <script src="js/userdashboard.js" defer></script>
+    <script src="js/userdashboard-menu.js" defer></script>
 </head>
 <body>
     <header class ="topbar">
-        <a class = "brand" href="userdashboard.php" aria-label = "UT IT Support Portal Home">
+        <a class = "brand" href="userdashboard.php" aria-label = "UTA IT Support Portal Home">
             <span class ="brand-mark">UTA</span>
             <span><strong>IT Support Portal</strong><small>Student &amp; Faculty Services</small></span>
         </a>
         <!--hamburger menu-->
         <div class="top-actions"> 
             <button id="hamburger" class ="three-lines" type="button">
-                <img src="images/hamburger-menu-icon.png" style="width:5%;height:5%;object-fit:contain;"> 
+                <img src="images/hamburger-menu-icon.png" width="24" height="24" alt="Menu"> 
             </button>   
         </div>
         <!--dropdown menu-->
-        <div class="dropdown-menu" style="display:none;">
+        <div class="dropdown-menu">
             <!--logout button-->
-            <button id="logoutButton" class ="logout-button" type="button">Logout</button>
+            <button id="logoutButton" class ="logout-button" type="button" aria-expanded="false">Logout</button>
             <!--notifcation button-->
             <button id="notificationsButton" class ="bell-button" type ="button" aria-expanded="false" aria-label="View notifications">
                 <span class="bell-icon">🔔</span>

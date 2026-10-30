@@ -35,9 +35,8 @@ button {
     color: white;
     cursor: pointer;
 }
-
 /* ---------- top bar ---------- */
-.topbar {
+.topbar #hamburger{
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -54,6 +53,18 @@ button {
 }
 
 .topbar .three-lines {
+    width: 5px;
+    height: 5px;
+    padding: 6px;
+    margin: 0;
+    border-radius: 50%;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.topbar .three-lines img {
     width: 40px;
     height: 40px;
     padding: 6px;
@@ -64,20 +75,13 @@ button {
     justify-content: center;
 }
 
-.topbar .three-lines img {
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
-    display: block;
-}
-
 /* ---------- dropdown menu ---------- */
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    z-index: 50;
+.dropdown-menu { 
+    display: none !important;
+    position: absolute !important;
+    top: 100% !important;
+    right: 0 !important;
+    z-index: 50 !important;
     background: #ffffff;
     border: 1px solid #e2e8f0;
     border-radius: 8px;
