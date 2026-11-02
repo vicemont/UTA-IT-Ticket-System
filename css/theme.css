@@ -1,0 +1,141 @@
+:root {
+    color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+    color-scheme: dark;
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 100;
+    width: auto;
+    min-height: 40px;
+    margin: 0;
+    padding: 8px 12px;
+    border: 1px solid currentColor;
+    border-radius: 6px;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.9rem;
+}
+
+.theme-toggle:hover {
+    background: rgba(127, 127, 127, 0.16);
+    color: inherit;
+}
+
+.theme-toggle:focus-visible {
+    outline: 3px solid #38bdf8;
+    outline-offset: 2px;
+}
+
+#login-form .theme-toggle,
+.top-actions .theme-toggle {
+    position: static;
+    display: block;
+}
+
+#login-form .theme-toggle {
+    margin-left: auto;
+    margin-bottom: 16px;
+}
+
+.top-actions .theme-toggle {
+    margin-right: 12px;
+}
+
+:root[data-theme="dark"] body {
+    background: #0f172a;
+    color: #e2e8f0;
+}
+
+:root[data-theme="dark"] .form-box,
+:root[data-theme="dark"] .topbar,
+:root[data-theme="dark"] .login,
+:root[data-theme="dark"] .ticket-form,
+:root[data-theme="dark"] .summary-card,
+:root[data-theme="dark"] .ticket-list-section {
+    background-color: #1e293b;
+    color: #e2e8f0;
+    border-color: #475569;
+}
+
+:root[data-theme="dark"] input,
+:root[data-theme="dark"] select,
+:root[data-theme="dark"] textarea {
+    background-color: #0f172a;
+    color: #f8fafc;
+    border-color: #475569;
+}
+
+:root[data-theme="dark"] input:focus,
+:root[data-theme="dark"] select:focus,
+:root[data-theme="dark"] textarea:focus {
+    border-color: #38bdf8;
+    background-color: #0f172a;
+}
+
+:root[data-theme="dark"] button:not(.theme-toggle) {
+    background-color: #0e7490;
+    color: #f8fafc;
+    border-color: #64748b;
+}
+
+:root[data-theme="dark"] button:not(.theme-toggle):hover {
+    background-color: #155e75;
+    color: #fff;
+}
+
+:root[data-theme="dark"] .secondary-button {
+    background-color: #164e63;
+    color: #e0f2fe;
+}
+
+:root[data-theme="dark"] .muted,
+:root[data-theme="dark"] .summary-note,
+:root[data-theme="dark"] #ticketListMessage {
+    color: #cbd5e1;
+}
+
+:root[data-theme="dark"] .bell-button {
+    background-color: #334155;
+}
+
+:root[data-theme="dark"] .bell-button:hover {
+    background-color: #475569;
+}
+
+:root[data-theme="dark"] .count-badge {
+    border-color: #1e293b;
+}
+
+:root[data-theme="dark"] .error {
+    background-color: #451a1a;
+    color: #fecaca;
+    border-color: #991b1b;
+}
+
+:root[data-theme="dark"] a {
+    color: #7dd3fc;
+}
+
+:root[data-theme="dark"] .brand {
+    color: #e2e8f0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    body,
+    .form-box,
+    .topbar,
+    .ticket-form,
+    input,
+    select,
+    textarea {
+        transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease;
+    }
+}

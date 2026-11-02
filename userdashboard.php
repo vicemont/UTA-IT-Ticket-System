@@ -4,6 +4,13 @@ if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'user') {
     header('Location: index.php');
     exit();
 }
+
+if (empty($_SESSION['ticket_csrf_token'])) {
+    $_SESSION['ticket_csrf_token'] = bin2hex(random_bytes(32));
+}
+
+$ticketError = $_SESSION['ticket_error'] ?? '';
+unset($_SESSION['ticket_error']);
 ?>
 
 <!DOCTYPE html>
@@ -12,16 +19,19 @@ if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'user') {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>UTA IT Support Portal</title>
-  <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/userdashboard.css">
+    <link rel="stylesheet" href="css/theme.css">
+  <script src="js/theme.js" defer></script>
   <script src="js/userdashboard.js" defer></script>
 </head>
 <body>
     <header class ="topbar">
-        <a class = "brand" href="userdashboard.html" aria-label = "UT IT Support Portal Home">
+        <a class = "brand" href="userdashboard.php" aria-label = "UT IT Support Portal Home">
             <span class ="brand-mark">UTA</span>
             <span><strong>IT Support Portal</strong><small>Student &amp; Faculty Services</small></span>
         </a>
         <div class="top-actions">
+            <button class="theme-toggle" type="button" aria-pressed="false">Switch to dark mode</button>
             <button id="notificationsButton" class ="bell-button" type ="button" aria-expanded="false" aria-label="View notifications">
                <span class="bell-icon">🔔</span>
                <span id="notifcationsBadge" class="count-badge">0</span>
@@ -42,12 +52,13 @@ if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'user') {
                     Create Ticket <span class="arrow" id ="dropDownArrow">▼</span>
                 </button>
                 <!--Dropdown form-->
-                <div id="ticketDropDown" class="ticket-form">
+                <div id="ticketDropDown" class="ticket-form<?= $ticketError ? ' show' : '' ?>">
                     <h3>Submit a Support Ticket</h3>
+                    <?php if ($ticketError): ?>
+                        <p class="error" aria-live="polite"><?= htmlspecialchars($ticketError, ENT_QUOTES, 'UTF-8') ?></p>
+                    <?php endif; ?>
                     <form id="supportTicketForm" action="php/submit-ticket.php" method="POST">
-
-                        <!--hidden line used for counting tickets-->
-                        <input type ="hidden" name ="status" value="open">
+                        <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['ticket_csrf_token'], ENT_QUOTES, 'UTF-8') ?>">
                         <!--title group-->
                         <div class="form-group">
                             <label for="ticketTitle">Title</label>
@@ -118,6 +129,11 @@ if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'user') {
                 <strong id="resolvedCount" class="summary-number">0</strong>
                 <span class="summary-note">Resolved or Cancelled</span>
             </article>
+        </section>
+        <section class="ticket-list-section" aria-labelledby="myTicketsHeading">
+            <h2 id="myTicketsHeading">My tickets</h2>
+            <p id="ticketListMessage" aria-live="polite">Loading your tickets...</p>
+            <ul id="myTicketsList"></ul>
         </section>
     </main>
 </body>
