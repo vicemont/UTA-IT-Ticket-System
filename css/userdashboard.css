@@ -39,6 +39,7 @@ button {
 .topbar {
     position: relative;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     background-color: #ffffff;
@@ -72,19 +73,14 @@ button {
 /* ---------- dropdown menu ---------- */
 .dropdown-menu { 
     display: none; /* Hidden by default */
-    position: absolute;
-    top: 100%; /* Sits exactly below the topbar */
-    right: 24px;
-    z-index: 50;
     background: #ffffff;
     border: 1px solid #e2e8f0;
     border-radius: 8px;
     padding: 16px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-    display: none; /* Let JS handle display: flex */
-    flex-direction: column;
-    gap: 12px;
     min-width: 100px;
+    flex-basis: 100%;
+    margin-top: 12px;
 }
 
 .dropdown-menu button {
@@ -181,6 +177,7 @@ button {
     position: relative;
     display: inline-block;
     margin-left: auto;
+    flex-wrap: wrap;
 }
 
 .ticket-form {
@@ -211,4 +208,93 @@ button {
     background: white;
     border-radius: 12px;
     box-shadow: 0 4px 20px #00000012;
+}
+
+.summary-card {
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.summary-card:hover { 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+    background-color: #75c6e6;
+}
+
+.ticket-list-section { margin-top: 24px; }
+
+.ticket-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+}
+
+.ticket-item span { color: #64748b; font-size: 14px; }
+.ticket-item strong { font-size: 16px; }
+
+.ticket-description {
+    margin: 4px 0 0;
+    color: #1e293b;
+    font-size: 14px;
+    white-space: pre-wrap;   /* keeps line breaks from the textarea */
+}
+.cancel-ticket-button {
+    align-self: flex-start;
+    margin-top: 8px;
+    padding: 8px 14px;
+    background-color: #087eae;
+    font-size: 14px;
+}
+
+.cancel-ticket-button:hover { background-color: #087eae; }
+
+.ticket-actions {
+    margin-top: 8px;
+}
+
+.confirm-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.confirm-row[hidden],
+.cancel-ticket-button[hidden] {
+    display: none;
+}
+
+.cancel-ticket-button:hover { background-color: #076d95; }
+.confirm-row span {
+    color: #1e293b;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.keep-ticket-button {
+    padding: 8px 14px;
+    background-color: #64748b;
+    font-size: 14px;
+}
+
+.keep-ticket-button:hover { background-color: #475569; }
+
+.ticket-error {
+    margin: 8px 0 0;
+    color: #087eae;
+    font-size: 14px;
+}
+
+.ticket-error:empty { display: none; }
+
+.confirm-row button {
+    margin: 0;
+    width: auto;
+    padding: 8px 14px;
+    font-size: 14px;
+    line-height: 1.2;
 }

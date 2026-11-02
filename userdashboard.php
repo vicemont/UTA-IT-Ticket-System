@@ -114,21 +114,27 @@ if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'user') {
         
         <!-- Ticket Summary Section --> 
         <section class="summary-grid" aria-label="Ticket Summary">
-            <article class="summary-card">
-                <span class ="sumarry-label">Open</span>
+            <article class="summary-card" data-status="open" tabindex="0">
+                <span class ="summary-label">Open</span>
                 <strong id="openCount" class="summary-number">0</strong>
                 <span class="summary-note">Waiting for IT</span>
             </article>
-            <article class="summary-card">
-                <span class ="sumarry-label">In Progress</span>
+            <article class="summary-card" data-status="in_progress" tabindex="0">
+                <span class ="summary-label">In Progress</span>
                 <strong id="inProgressCount" class="summary-number">0</strong>
                 <span class="summary-note">Being worked on</span>
             </article>
-            <article class="summary-card">
-                <span class ="sumarry-label">Resolved</span>
+            <article class="summary-card" data-status="resolved" tabindex="0">
+                <span class ="summary-label">Resolved</span>
                 <strong id="resolvedCount" class="summary-number">0</strong>
                 <span class="summary-note">Resolved or Cancelled</span>
             </article>
+        </section>
+
+        <!--Ticket List Section -->
+        <section class="ticket-list-section">
+            <h2 id="ticketListHeading">Select a status to view your tickets</h2>
+            <div id="ticketList"></div>
         </section>
     </main>
 </body>
