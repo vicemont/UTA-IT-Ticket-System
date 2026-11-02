@@ -30,13 +30,13 @@ if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'user') {
         </div>
         <!--dropdown menu-->
         <div class="dropdown-menu" style="display: none; position: absolute; right: 0; top: 100%; background: white; border: 1px solid #ccc; box-shadow: 0 4px 6px rgba(0,0,0,0.1); padding: 10px; border-radius: 4px; z-index: 1000;">
-            <!--logout button-->
-            <button id="logoutButton" class ="logout-button" type="button">Logout</button>
             <!--notifcation button-->
             <button id="notificationsButton" class ="bell-button" type ="button" aria-expanded="false" aria-label="View notifications">
                 <span class="bell-icon">🔔</span>
                 <span id="notifcationsBadge" class="count-badge">0</span>
-            </button>   
+            </button>  
+            <!--logout button-->
+            <button id="logoutButton" class ="logout-button" type="button">Logout</button> 
         </div>
     </header>
     

@@ -84,7 +84,7 @@ button {
     display: none; /* Let JS handle display: flex */
     flex-direction: column;
     gap: 12px;
-    min-width: 200px;
+    min-width: 100px;
 }
 
 .dropdown-menu button {
@@ -99,18 +99,21 @@ button {
 }
 
 .dropdown-menu .logout-button {
-    background-color: #dc2626;
+    background-color: #087eae;
 }
 .dropdown-menu .bell-button {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     background-color: #f1f5f9;
     color: #1e293b;
-    width: 100%;
+    width: 100px;
+    height: 40px;
+    padding: 0;
+    margin: 0 auto;
 }
 .dropdown-menu .bell-icon {
-    font-size: 16px;
+    font-size: 26px;
 }
 
 .dropdown-menu .count-badge {
@@ -139,10 +142,14 @@ button {
     background-color: #f1f5f9;
     border-radius: 50%;
     transition: background-color 0.2s ease;
+    margin: 0 auto;
 }
 
 .bell-button:hover { background-color: #e2e8f0; }
-.bell-icon { font-size: 18px; }
+.bell-icon { 
+    font-size: 18px; 
+    line-height: 1;
+}
 
 .count-badge {
     position: absolute;
