@@ -10,3 +10,8 @@ with the logged-in user.
 
 The database connection settings are in `config.php`. Set them to match your local
 database server before running the PHP application.
+
+The user dashboard lists each user's tickets under New, In Progress, Resolved, and
+Canceled filters. Staff can view all tickets in the same status groups and sort by
+submission time or priority. Users can cancel their own active tickets from the
+ticket list.
