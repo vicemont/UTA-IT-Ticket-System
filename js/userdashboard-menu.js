@@ -16,3 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+//Logout functionality
+document.getElementById('logoutButton').addEventListener('click', () => {
+    window.location.href = '../login.php';
+});
