@@ -17,11 +17,9 @@ if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'user') {
     <script src="js/userdashboard-menu.js" defer></script>
 </head>
 <body>
-    <header class ="topbar" style="display: flex; align-items: center; width: 100%; box-sizing: border-box; background-color: #ffffff; padding: 10px 20px;">
+    <header class ="topbar" style="display: flex; align-items: center; width: 100%; box-sizing: border-box; background-color: #ffffff; padding: 10px 20px;box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
         <a class ="brand" href="userdashboard.php" aria-label = "UTA IT Support Portal Home" style="text-decoration:none;">
-            <img src="images/UTA_logomark.png" width="24" height="24">
-            <span>UTA</span>
-            <span><strong>IT Support Portal </strong>Student & Faculty Services</span>
+            <span class="page-name"><strong>UT<img src="images/UTA_logomark.png" width="24" height="24"> IT Support Portal Student & Faculty Services</strong></span>
         </a>
         <!--hamburger menu-->
         <div class="top-actions" style="margin-left: auto; position: relative;"> 
@@ -45,9 +43,8 @@ if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'user') {
         <section class ="welcome-row">
             <div>
                 <p class="eyebrow" style="background-color: #076d95;padding: 8px 14px;
-    border-radius: 18px;line-height:1.2;display:inline-block;color:white;box-shadow:2px 2px 5px rgba(0, 0, 0, 0.3);"><strong>USER DASHBOARD</strong></p>
+    border-radius: 10px;line-height:1.2;display:inline-block;color:white;box-shadow:2px 2px 5px rgba(0, 0, 0, 0.3);font-size: 20px;"><strong>User Dashboard</strong></p>
                 <h1 id="WelcomeHeading" style="font-family:Geneva, Verdana, sans-serif;">Welcome to IT Support</h1>
-                <p class="info" style="color:#087eae;">Create a ticket or check the status of an existing request.</p>
             </div>
             <!--Trigger for Dropdown form-->
             <div class ="dropdown">
