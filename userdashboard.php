@@ -44,9 +44,10 @@ if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'user') {
     <main class="page">
         <section class ="welcome-row">
             <div>
-                <p class="eyebrow">USER DASHBOARD</p>
-                <h1 id = "WelcomeHeading">Welcome to IT Support</h1>
-                <p class="muted">Create a ticket or check the status of an existing request.</p>
+                <p class="eyebrow" style="background-color: #076d95;padding: 8px 14px;
+    border-radius: 18px;line-height:1.2;display:inline-block;color:white;box-shadow:2px 2px 5px rgba(0, 0, 0, 0.3);"><strong>USER DASHBOARD</strong></p>
+                <h1 id="WelcomeHeading" style="font-family:Geneva, Verdana, sans-serif;">Welcome to IT Support</h1>
+                <p class="info" style="color:#087eae;">Create a ticket or check the status of an existing request.</p>
             </div>
             <!--Trigger for Dropdown form-->
             <div class ="dropdown">

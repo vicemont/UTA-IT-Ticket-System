@@ -69,7 +69,6 @@ button {
     height: 24px;
     display: block;
 }
-
 /* ---------- dropdown menu ---------- */
 .dropdown-menu { 
     display: none; /* Hidden by default */
