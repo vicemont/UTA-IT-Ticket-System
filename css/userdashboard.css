@@ -90,6 +90,9 @@ button {
     font-size: 14px;
     font-weight: 600;
 }
+.dropdown button:hover { /****/
+    background-color: #076d95;
+}
 .dropdown-menu.show {
     display: block !important; 
 }
@@ -168,7 +171,7 @@ button {
 /* ---------- welcome row / ticket form ---------- */
 .welcome-row {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     width: 100%;
 }
@@ -210,17 +213,42 @@ button {
     box-shadow: 0 4px 20px #00000012;
 }
 
+.summary-card:hover {
+    background-color: #ca5121;
+    color: white;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+.summary-label {
+    display: inline-block;
+    line-height: 1.2;
+    transition: color 0.4s ease-in-out;
+}
+.summar-label:hover {
+    color: white;
+}
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, max-content);  /* columns only as wide as the content */
+    gap: 16px;
+    justify-content: start;
+}
+
 .summary-card {
     cursor: pointer;
-    font-size: 24px;
+    color: black;
+    font-size: 20px;
+    padding: 12px 14px;
+    border-radius: 16px;
+    background-color: transparent;
+    transition: background-color 0.4s ease-in-out,
+                box-shadow 0.4s ease-in-out,
+                color 0.4s ease-in-out;            
 }
 
-.summary-card:hover { 
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
-    background-color: #75c6e6;
+.ticket-list-section {
+    margin-top: 24px;
+    color: #076d95;
 }
-
-.ticket-list-section { margin-top: 24px; }
 
 .ticket-item {
     display: flex;
@@ -297,4 +325,8 @@ button {
     padding: 8px 14px;
     font-size: 14px;
     line-height: 1.2;
+}
+
+.brand {
+    color: #ca5121;
 }

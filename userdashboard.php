@@ -18,9 +18,10 @@ if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'user') {
 </head>
 <body>
     <header class ="topbar" style="display: flex; align-items: center; width: 100%; box-sizing: border-box; background-color: #ffffff; padding: 10px 20px;">
-        <a class = "brand" href="userdashboard.php" aria-label = "UTA IT Support Portal Home" style="text-decoration:none;">
-            <span class ="brand-mark">UTA</span>
-            <span><strong>IT Support Portal</strong><small>Student &amp; Faculty Services</small></span>
+        <a class ="brand" href="userdashboard.php" aria-label = "UTA IT Support Portal Home" style="text-decoration:none;">
+            <img src="images/UTA_logomark.png" width="24" height="24">
+            <span>UTA</span>
+            <span><strong>IT Support Portal </strong>Student & Faculty Services</span>
         </a>
         <!--hamburger menu-->
         <div class="top-actions" style="margin-left: auto; position: relative;"> 
@@ -45,7 +46,7 @@ if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'user') {
             <div>
                 <p class="eyebrow">USER DASHBOARD</p>
                 <h1 id = "WelcomeHeading">Welcome to IT Support</h1>
-                <p class = "muted">Create a ticket or check the status of an existing requirest.</p>
+                <p class="muted">Create a ticket or check the status of an existing request.</p>
             </div>
             <!--Trigger for Dropdown form-->
             <div class ="dropdown">
@@ -134,7 +135,7 @@ if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'user') {
         <!--Ticket List Section -->
         <section class="ticket-list-section">
             <h2 id="ticketListHeading">Select a status to view your tickets</h2>
-            <div id="ticketList"></div>
+            <div class="ticket-background" id="ticketList"></div>
         </section>
     </main>
 </body>
