@@ -31,7 +31,7 @@ button {
     padding: 12px;
     border: 0;
     border-radius: 6px;
-    background-color: #087eae;
+    background-color: #0863ae;
     color: white;
     cursor: pointer;
 }
@@ -42,15 +42,18 @@ button {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    background-color: #ffffff;
-    padding: 12px 24px;
     border-bottom: 1px solid #e2e8f0;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .top-actions {
     display: flex;
     align-items: center;
-    margin-left: auto;   /* pushes hamburger to the right */
+    margin-left: auto;
+    position: relative;
 }
 
 .topbar .three-lines {
@@ -62,6 +65,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
     border-radius: 8px;
 }
 
@@ -71,6 +75,13 @@ button {
     display: block;
 }
 
+.topbar .three-lines:hover {
+    background-color: #06518e;
+}
+
+.topbar .brand {
+    text-decoration: none;
+}
 /* ---------- dropdown menu ---------- */
 .dropdown-menu { 
     display: none;
@@ -103,7 +114,10 @@ button {
 }
 
 .dropdown-menu .logout-button {
-    background-color: #087eae;
+    background-color: #0863ae;
+}
+.dropdown-menu .logout-button:hover {
+    background-color: #06518e;
 }
 .dropdown-menu .bell-button {
     display: flex;
@@ -178,6 +192,15 @@ button {
     width: 100%;
 }
 
+.welcome-row .eyebrow {
+    background-color: #0863ae;
+    padding: 8px 14px;
+    border-radius: 10px;
+    line-height:1.2;
+    display:inline-block;
+    color:white;
+    font-size: 20px;
+}
 .dropdown {
     position: relative;
     display: inline-block;
@@ -218,12 +241,10 @@ button {
 .summary-card:hover {
     background-color: #ca5121;
     color: white;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
 }
 .summary-label {
     display: inline-block;
     line-height: 1.2;
-    transition: color 0.4s ease-in-out;
 }
 .summar-label:hover {
     color: white;
@@ -237,19 +258,18 @@ button {
 
 .summary-card {
     cursor: pointer;
-    color: black;
     font-size: 20px;
     padding: 12px 14px;
     border-radius: 16px;
-    background-color: transparent;
+    background-color: #fbfbfb9f;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
     transition: background-color 0.4s ease-in-out,
-                box-shadow 0.4s ease-in-out,
                 color 0.4s ease-in-out;            
 }
 
 .ticket-list-section {
     margin-top: 24px;
-    color: #076d95;
+    color: #0863ae;
 }
 
 .ticket-item {
@@ -261,6 +281,7 @@ button {
     border-radius: 8px;
     padding: 12px 16px;
     margin-bottom: 8px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
 }
 
 .ticket-item span { color: #64748b; font-size: 14px; }
@@ -276,7 +297,7 @@ button {
     align-self: flex-start;
     margin-top: 8px;
     padding: 8px 14px;
-    background-color: #087eae;
+    background-color: #0863ae;
     font-size: 14px;
 }
 

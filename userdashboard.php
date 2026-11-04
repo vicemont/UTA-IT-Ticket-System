@@ -4,13 +4,6 @@ if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'user') {
     header('Location: index.php');
     exit();
 }
-
-if (empty($_SESSION['ticket_csrf_token'])) {
-    $_SESSION['ticket_csrf_token'] = bin2hex(random_bytes(32));
-}
-
-$ticketError = $_SESSION['ticket_error'] ?? '';
-unset($_SESSION['ticket_error']);
 ?>
 
 <!DOCTYPE html>
@@ -54,9 +47,8 @@ unset($_SESSION['ticket_error']);
     <main class="page">
         <section class ="welcome-row">
             <div>
-                <p class="eyebrow">USER DASHBOARD</p>
-                <h1 id = "WelcomeHeading">Welcome to IT Support</h1>
-                <p class="muted">Create a ticket or check the status of an existing request.</p>
+                <p class="eyebrow"><strong>User Dashboard</strong></p>
+                <h1 id="WelcomeHeading" style="font-family:Geneva, Verdana, sans-serif;">Welcome to IT Support</h1>
             </div>
             <!--Trigger for Dropdown form-->
             <div class ="dropdown">
@@ -64,13 +56,12 @@ unset($_SESSION['ticket_error']);
                     Create Ticket <span class="arrow" id ="dropDownArrow">▼</span>
                 </button>
                 <!--Dropdown form-->
-                <div id="ticketDropDown" class="ticket-form<?= $ticketError ? ' show' : '' ?>">
+                <div id="ticketDropDown" class="ticket-form">
                     <h3>Submit a Support Ticket</h3>
-                    <?php if ($ticketError): ?>
-                        <p class="error" aria-live="polite"><?= htmlspecialchars($ticketError, ENT_QUOTES, 'UTF-8') ?></p>
-                    <?php endif; ?>
                     <form id="supportTicketForm" action="php/submit-ticket.php" method="POST">
-                        <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['ticket_csrf_token'], ENT_QUOTES, 'UTF-8') ?>">
+
+                        <!--hidden line used for counting tickets-->
+                        <input type ="hidden" name ="status" value="open">
                         <!--title group-->
                         <div class="form-group">
                             <label for="ticketTitle">Title</label>
