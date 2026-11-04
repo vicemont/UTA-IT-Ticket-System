@@ -16,26 +16,37 @@ unset($_SESSION['ticket_error']);
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UTA IT Support Portal</title>
-    <link rel="stylesheet" href="css/userdashboard.css">
-    <link rel="stylesheet" href="css/theme.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTA IT Support Portal</title>
+      <link rel="stylesheet" href="css/userdashboard.css">
+    <link rel="userdashboardsheet" href="css/theme.css">
   <script src="js/theme.js" defer></script>
-  <script src="js/userdashboard.js" defer></script>
+    <script src="js/userdashboard.js" defer></script>
+    <script src="js/userdashboard-menu.js" defer></script>
 </head>
 <body>
-    <header class ="topbar">
-        <a class = "brand" href="userdashboard.php" aria-label = "UT IT Support Portal Home">
-            <span class ="brand-mark">UTA</span>
-            <span><strong>IT Support Portal</strong><small>Student &amp; Faculty Services</small></span>
+    <header class ="topbar" style="display: flex; align-items: center; width: 100%; box-sizing: border-box; background-color: #ffffff; padding: 10px 20px;">
+        <a class ="brand" href="userdashboard.php" aria-label = "UTA IT Support Portal Home" style="text-decoration:none;">
+            <img src="images/UTA_logomark.png" width="24" height="24">
+            <span>UTA</span>
+            <span><strong>IT Support Portal </strong>Student & Faculty Services</span>
         </a>
-        <div class="top-actions">
-            <button class="theme-toggle" type="button" aria-pressed="false">Switch to dark mode</button>
+        <!--hamburger menu-->
+        <div class="top-actions" style="margin-left: auto; position: relative;"> 
+            <button id="hamburger" class ="three-lines" type="button" style="cursor: pointer; display: flex; align-items: center; justify-content: center;background-color: #087eae; border: none; border-radius: 8px; padding: 12px;">
+                <img src="images/hamburger-menu-icon.png" width="24" height="24" alt="Menu"> 
+            </button>   
+        </div>
+        <!--dropdown menu-->
+        <div class="dropdown-menu" style="display: none; position: absolute; right: 0; top: 100%; background: white; border: 1px solid #ccc; box-shadow: 0 4px 6px rgba(0,0,0,0.1); padding: 10px; border-radius: 4px; z-index: 1000;">
+            <!--notifcation button-->
             <button id="notificationsButton" class ="bell-button" type ="button" aria-expanded="false" aria-label="View notifications">
-               <span class="bell-icon">🔔</span>
-               <span id="notifcationsBadge" class="count-badge">0</span>
-            </button>
+                <span class="bell-icon">🔔</span>
+                <span id="notifcationsBadge" class="count-badge">0</span>
+            </button>  
+            <!--logout button-->
+            <button id="logoutButton" class ="logout-button" type="button">Logout</button> 
         </div>
     </header>
     
@@ -44,7 +55,7 @@ unset($_SESSION['ticket_error']);
             <div>
                 <p class="eyebrow">USER DASHBOARD</p>
                 <h1 id = "WelcomeHeading">Welcome to IT Support</h1>
-                <p class = "muted">Create a ticket or check the status of an existing requirest.</p>
+                <p class="muted">Create a ticket or check the status of an existing request.</p>
             </div>
             <!--Trigger for Dropdown form-->
             <div class ="dropdown">
@@ -114,18 +125,18 @@ unset($_SESSION['ticket_error']);
         
         <!-- Ticket Summary Section --> 
         <section class="summary-grid" aria-label="Ticket Summary">
-            <article class="summary-card">
-                <span class ="sumarry-label">Open</span>
+            <article class="summary-card" data-status="open" tabindex="0">
+                <span class ="summary-label">Open</span>
                 <strong id="openCount" class="summary-number">0</strong>
                 <span class="summary-note">Waiting for IT</span>
             </article>
-            <article class="summary-card">
-                <span class ="sumarry-label">In Progress</span>
+            <article class="summary-card" data-status="in_progress" tabindex="0">
+                <span class ="summary-label">In Progress</span>
                 <strong id="inProgressCount" class="summary-number">0</strong>
                 <span class="summary-note">Being worked on</span>
             </article>
-            <article class="summary-card">
-                <span class ="sumarry-label">Resolved</span>
+            <article class="summary-card" data-status="resolved" tabindex="0">
+                <span class ="summary-label">Resolved</span>
                 <strong id="resolvedCount" class="summary-number">0</strong>
                 <span class="summary-note">Resolved or Cancelled</span>
             </article>
@@ -134,6 +145,12 @@ unset($_SESSION['ticket_error']);
             <h2 id="myTicketsHeading">My tickets</h2>
             <p id="ticketListMessage" aria-live="polite">Loading your tickets...</p>
             <ul id="myTicketsList"></ul>
+        </section>
+
+        <!--Ticket List Section -->
+        <section class="ticket-list-section">
+            <h2 id="ticketListHeading">Select a status to view your tickets</h2>
+            <div class="ticket-background" id="ticketList"></div>
         </section>
     </main>
 </body>
