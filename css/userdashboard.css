@@ -31,7 +31,7 @@ button {
     padding: 12px;
     border: 0;
     border-radius: 6px;
-    background-color: #087eae;
+    background-color: #0863ae;
     color: white;
     cursor: pointer;
 }
@@ -43,14 +43,29 @@ button {
     justify-content: space-between;
     align-items: center;
     /*background-color: #fff3edfd !important;*/
-    padding: 12px 24px;
     border-bottom: 1px solid #e2e8f0;
+    width: 100%; 
+    box-sizing: border-box; 
+    background-color: #ffffff; 
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .top-actions {
     display: flex;
     align-items: center;
-    margin-left: auto;   /* pushes hamburger to the right */
+    margin-left: auto;
+    position: relative;   /* pushes hamburger to the right */
+}
+.top-actions .three-lines {
+    cursor: pointer; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    background-color: #0863ae; 
+    border: none; 
+    border-radius: 8px; 
+    padding: 12px;
 }
 .topbar .three-lines {
     width: auto;
@@ -68,23 +83,30 @@ button {
     display: block;
 }
 .topbar .three-lines:hover {
-    background-color: #076d95 !important;
+    background-color: #ccc;
 }
 .topbar .page-name {
-    font-size: 20px;
-    color: #087eae;
+    font-size: 22px;
+    color: #0863ae;
+}
+.topbar .brand {
+    text-decoration:none;
 }
 /* ---------- dropdown menu ---------- */
 .dropdown-menu { 
     display: none; /* Hidden by default */
     background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    padding: 16px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.01);
     min-width: 100px;
     flex-basis: 100%;
     margin-top: 12px;
+    position: absolute;
+    right: 0; 
+    top: 100%;
+    z-index: 1000;
 }
 
 .dropdown-menu button {
@@ -95,17 +117,17 @@ button {
     font-weight: 600;
 }
 .dropdown button:hover { /****/
-    background-color: #076d95;
+    background-color: #06518e;
 }
 .dropdown-menu.show {
     display: block !important; 
 }
 
 .dropdown-menu .logout-button {
-    background-color: #087eae;
+    background-color: #0863ae;
 }
 .dropdown-menu .logout-button:hover {
-    background-color: #076d95;
+    background-color: #06518e;
 }
 .dropdown-menu .bell-button {
     display: flex;
@@ -183,6 +205,15 @@ button {
     width: 100%;
 }
 
+.welcome-row .eyebrow {
+    background-color: #0863ae;
+    padding: 8px 14px;
+    border-radius: 10px;
+    line-height:1.2;
+    display:inline-block;
+    color:white;
+    font-size: 20px;
+}
 .dropdown {
     position: relative;
     display: inline-block;
@@ -251,7 +282,7 @@ button {
 
 .ticket-list-section {
     margin-top: 24px;
-    color: #076d95;
+    color: #0863ae;
 }
 
 .ticket-item {
@@ -279,7 +310,7 @@ button {
     align-self: flex-start;
     margin-top: 8px;
     padding: 8px 14px;
-    background-color: #087eae;
+    background-color: #0863ae;
     font-size: 14px;
 }
 
