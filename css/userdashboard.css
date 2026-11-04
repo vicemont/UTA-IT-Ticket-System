@@ -56,17 +56,26 @@ button {
     position: relative;
 }
 
+.top-actions .three-lines {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0863ae;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+}
+
 .topbar .three-lines {
     width: auto;
     height: auto;
     padding: 6px;
     margin: 0;
-    background-color: #087eae;
+    background-color: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    border-radius: 8px;
 }
 
 .topbar .three-lines img {
@@ -76,7 +85,12 @@ button {
 }
 
 .topbar .three-lines:hover {
-    background-color: #06518e;
+    background-color: #ccc;
+}
+
+.topbar .page-name {
+    font-size: 22px;
+    color: #0863ae;
 }
 
 .topbar .brand {
@@ -84,16 +98,18 @@ button {
 }
 /* ---------- dropdown menu ---------- */
 .dropdown-menu { 
-    display: none;
-    position: absolute;
-    top: calc(100% + 8px);
-    right: 24px;
+    display: none; /* Hidden by default */
     background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    padding: 16px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-    min-width: 180px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.01);
+    min-width: 100px;
+    flex-basis: 100%;
+    margin-top: 12px;
+    position: absolute;
+    right: 0;
+    top: 100%;
     z-index: 1000;
 }
 
@@ -105,12 +121,10 @@ button {
     font-weight: 600;
 }
 .dropdown-menu button:hover {
-    background-color: #076d95;
+    background-color: #06518e;
 }
 .dropdown-menu.show {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+    display: block !important;
 }
 
 .dropdown-menu .logout-button {
@@ -125,7 +139,10 @@ button {
     align-items: center;
     background-color: #f1f5f9;
     color: #1e293b;
-    gap: 8px;
+    width: 100px;
+    height: 40px;
+    padding: 0;
+    margin: 0 auto;
 }
 .dropdown-menu .bell-icon {
     font-size: 26px;
