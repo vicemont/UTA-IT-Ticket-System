@@ -15,18 +15,40 @@ function updateDashboardCounters() {
     })
     .then(data => {
         if (data.error) {
-            console.error("Database error:", data.error);
-            return;
+            throw new Error(data.error);
         }
         // Updates your HTML elements with live database figures
-        document.getElementById('openCount').textContent = data.open;
-        document.getElementById('inProgressCount').textContent = data.in_progress;
-        document.getElementById('resolvedCount').textContent = data.resolved;
+        document.getElementById('openCount').textContent = data.counts.open;
+        document.getElementById('inProgressCount').textContent = data.counts.in_progress;
+        document.getElementById('resolvedCount').textContent = data.counts.resolved;
+
+        const ticketList = document.getElementById('myTicketsList');
+        const ticketListMessage = document.getElementById('ticketListMessage');
+        ticketList.replaceChildren();
+
+        if (data.tickets.length === 0) {
+            ticketListMessage.textContent = 'You have not submitted any tickets yet.';
+            return;
+        }
+
+        ticketListMessage.textContent = '';
+        data.tickets.forEach(ticket => {
+            const item = document.createElement('li');
+            const title = document.createElement('strong');
+            const details = document.createElement('span');
+
+            title.textContent = ticket.title;
+            details.textContent = ` - ${ticket.status} | ${ticket.created_at}`;
+            item.append(title, details);
+            ticketList.append(item);
+        });
     })
     .catch(error => {
         console.error('Error getting ticket counts:', error);
-        // If it fails, fallback to 0 instead of a blank dash
-        document.getElementById('openCount').textContent = "0";
+        document.getElementById('openCount').textContent = "N/A";
+        document.getElementById('inProgressCount').textContent = "N/A";
+        document.getElementById('resolvedCount').textContent = "N/A";
+        document.getElementById('ticketListMessage').textContent = 'Unable to load your tickets.';
     });
 }
 

@@ -95,6 +95,10 @@ p {
 
 .error {
     color: #b42318;
+    background: #fef3f2;
+    border: 1px solid #fecdca;
+    border-radius: 6px;
+    padding: 10px 12px;
     margin-bottom: 15px;
     font-weight: 500;
 }
