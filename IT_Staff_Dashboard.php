@@ -47,7 +47,6 @@ $tickets = [
 
 <!-- Tab content -->
 <div id="Open" class="tabcontent">
-  <h3>Open Tickets</h3>
   <div class="cards">
 
     <h2>Open Tickets</h2>
@@ -82,8 +81,35 @@ $tickets = [
 </div>
 
 <div id="Closed" class="tabcontent">
-  <h3>Closed Tickets</h3>
-  
+  <div class="Cards">
+  <h2>Closed Tickets</h2>
+  <?php foreach ($tickets as $ticket): ?>
+
+        <div class="card">
+
+            <h3>
+                <?php echo $ticket["issue"]; ?>
+            </h3>
+
+            <p>
+                Created By:
+                <?php echo $ticket["createdBy"]; ?>
+            </p>
+
+           
+
+            <p>
+                <?php echo $ticket["priority"]; ?>
+            </p>
+
+           
+
+        </div>
+
+        <?php endforeach; ?>
+
+    </div>
+
 </div>
 
 <div id="Search" class="tabcontent">
