@@ -42,31 +42,31 @@ button {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    /*background-color: #fff3edfd !important;*/
     border-bottom: 1px solid #e2e8f0;
-    width: 100%;
-    background-color: #ffffff;
+    width: 100%; 
+    box-sizing: border-box; 
+    background-color: #ffffff; 
     padding: 10px 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .top-actions {
     display: flex;
     align-items: center;
     margin-left: auto;
-    position: relative;
+    position: relative;   /* pushes hamburger to the right */
 }
-
 .top-actions .three-lines {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
+    cursor: pointer; 
+    display: flex; 
+    align-items: center; 
     justify-content: center;
-    background-color: #0863ae;
-    border: none;
-    border-radius: 8px;
+    background-color: #0863ae; 
+    border: none; 
+    border-radius: 8px; 
     padding: 12px;
 }
-
 .topbar .three-lines {
     width: auto;
     height: auto;
@@ -77,24 +77,20 @@ button {
     align-items: center;
     justify-content: center;
 }
-
 .topbar .three-lines img {
     width: 24px;
     height: 24px;
     display: block;
 }
-
 .topbar .three-lines:hover {
     background-color: #ccc;
 }
-
 .topbar .page-name {
     font-size: 22px;
     color: #0863ae;
 }
-
 .topbar .brand {
-    text-decoration: none;
+    text-decoration:none;
 }
 /* ---------- dropdown menu ---------- */
 .dropdown-menu { 
@@ -108,7 +104,7 @@ button {
     flex-basis: 100%;
     margin-top: 12px;
     position: absolute;
-    right: 0;
+    right: 0; 
     top: 100%;
     z-index: 1000;
 }
@@ -120,11 +116,11 @@ button {
     font-size: 14px;
     font-weight: 600;
 }
-.dropdown-menu button:hover {
+.dropdown button:hover { /****/
     background-color: #06518e;
 }
 .dropdown-menu.show {
-    display: block !important;
+    display: block !important; 
 }
 
 .dropdown-menu .logout-button {
