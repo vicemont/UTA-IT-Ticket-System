@@ -5,18 +5,33 @@ document.addEventListener('DOMContentLoaded', () => {
     if (hamburger && dropdownMenu) {
         hamburger.addEventListener('click', (event) => {
             event.stopPropagation();
-            dropdownMenu.classList.toggle('show');
+            const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+            hamburger.setAttribute('aria-expanded', String(!isExpanded));
+            hamburger.setAttribute('aria-label', isExpanded ? 'Open menu' : 'Close menu');
+            dropdownMenu.classList.toggle('show', !isExpanded);
         });
 
-        // Click anywhere outside to dismiss
         document.addEventListener('click', (event) => {
             if (!dropdownMenu.contains(event.target) && !hamburger.contains(event.target)) {
                 dropdownMenu.classList.remove('show');
+                hamburger.setAttribute('aria-expanded', 'false');
+                hamburger.setAttribute('aria-label', 'Open menu');
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                dropdownMenu.classList.remove('show');
+                hamburger.setAttribute('aria-expanded', 'false');
+                hamburger.setAttribute('aria-label', 'Open menu');
             }
         });
     }
-});
-//Logout functionality
-document.getElementById('logoutButton').addEventListener('click', () => {
-    window.location.href = '../login.php';
+
+    const logoutButton = document.getElementById('logoutButton');
+    if (logoutButton) {
+        logoutButton.addEventListener('click', () => {
+            window.location.href = 'php/logout.php';
+        });
+    }
 });
