@@ -49,6 +49,8 @@ input, select, textarea {
     border-radius: 6px;
     background-color: var(--card-bg);
     color: var(--text-main);
+    box-sizing: border-box;
+    max-width: 100%;
 }
 
 /* generic button rule */
@@ -163,7 +165,9 @@ button:hover {
 .dropdown-menu .logout-button {
     background-color: var(--accent);
 }
-
+.dropdown-menu .logout-button:hover {
+    background-color: var(--accent-hover);
+}
 .dropdown-menu .bell-button {
     display: flex;
     justify-content: center;
@@ -275,7 +279,14 @@ button:hover {
 }
 
 .ticket-form.show { display: block; }
-
+ 
+.ticket-form .form-group {
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flow-root;
+    max-width: 100%;
+    width: 100%;
+}
 .submit-button,
 .cancel-button {
     width: 100%;
