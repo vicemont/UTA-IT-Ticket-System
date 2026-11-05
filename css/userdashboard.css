@@ -1,13 +1,36 @@
-* {
-    box-sizing: border-box;
+/* 1. Default Light Mode Styles */
+:root {
+    --bg-main: #f1f5f9;         /* RESTORED: Your original body background */
+    --text-main: #1e293b;       /* RESTORED: Your original body text color */
+    --card-bg: #ffffff;         /* RESTORED: Your original white for cards/topbar */
+    --accent: #0863ae;          /* Your original blue button/brand color */
+    --accent-hover: #06518e;    /* Your original button hover color */
+    --border-color: #e2e8f0;    /* Your original topbar/ticket border */
+    --input-border: #cbd5e1;    /* Your original input border */
+    --secondary-text: #64748b;  /* Your original ticket span color */
+    --summary-card-bg: #fbfbfb9f; /* RESTORED: Your original summary card background */
+    --brand-orange: #ca5121;
 }
 
+/* 2. Dark Mode Styles (Triggered when .dark-mode class is applied) */
+:root.dark-mode {
+    --bg-main: #121212;
+    --text-main: #f5f5f5;
+    --card-bg: #1f1e1e;
+    --accent: #1d4b81;        
+    --accent-hover: #173960;
+    --border-color: #334155;
+    --input-border: #475569;
+    --secondary-text: #94a3b8;
+    --summary-card-bg: #2d2d2d;
+    --brand-orange: #944221;
+}
 body {
     margin: 0;
     min-height: 100vh;
     font-family: Arial, sans-serif;
-    background: #f1f5f9;
-    color: #1e293b;
+    background: var(--bg-main);   /* Dynamic background */
+    color: var(--text-main);       /* Dynamic text */
     padding: 20px;
 }
 
@@ -22,31 +45,36 @@ label {
 input, select, textarea {
     width: 100%;
     padding: 12px;
-    border: 1px solid #cbd5e1;
+    border: 1px solid var(--input-border);
     border-radius: 6px;
+    background-color: var(--card-bg);
+    color: var(--text-main);
 }
 
-/*generic button rule, no width or margin */
+/* generic button rule */
 button {
     padding: 12px;
     border: 0;
     border-radius: 6px;
-    background-color: #0863ae;
+    background-color: var(--accent);
     color: white;
     cursor: pointer;
 }
-/* ---------- top bar ---------- */
+button:hover {
+    background-color: var(--accent-hover);
+}
+
+/* ---------- 3. TOP BAR ---------- */
 .topbar {
     position: relative;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    /*background-color: #fff3edfd !important;*/
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid var(--border-color);
     width: 100%; 
     box-sizing: border-box; 
-    background-color: #ffffff; 
+    background-color: var(--card-bg); 
     padding: 10px 20px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
@@ -55,18 +83,20 @@ button {
     display: flex;
     align-items: center;
     margin-left: auto;
-    position: relative;   /* pushes hamburger to the right */
+    position: relative;
 }
+
 .top-actions .three-lines {
     cursor: pointer; 
     display: flex; 
     align-items: center; 
     justify-content: center;
-    background-color: #0863ae; 
+    background-color: var(--accent); 
     border: none; 
     border-radius: 8px; 
     padding: 12px;
 }
+
 .topbar .three-lines {
     width: auto;
     height: auto;
@@ -77,29 +107,38 @@ button {
     align-items: center;
     justify-content: center;
 }
+
 .topbar .three-lines img {
     width: 24px;
     height: 24px;
     display: block;
 }
-.topbar .three-lines:hover {
-    background-color: #ccc;
+
+:root.dark-mode .topbar .three-lines img {
+    filter: invert(1); 
 }
+
+.topbar .three-lines:hover {
+    background-color: var(--border-color);
+}
+
 .topbar .page-name {
     font-size: 22px;
-    color: #0863ae;
+    color: var(--accent);
 }
+
 .topbar .brand {
-    text-decoration:none;
+    text-decoration: none;
 }
-/* ---------- dropdown menu ---------- */
+
+/* ---------- 4. DROPDOWN MENU ---------- */
 .dropdown-menu { 
-    display: none; /* Hidden by default */
-    background: #ffffff;
-    border: 1px solid #ccc;
+    display: none;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
     border-radius: 4px;
     padding: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.01);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     min-width: 100px;
     flex-basis: 100%;
     margin-top: 12px;
@@ -116,30 +155,27 @@ button {
     font-size: 14px;
     font-weight: 600;
 }
-.dropdown button:hover { /****/
-    background-color: #06518e;
-}
+
 .dropdown-menu.show {
     display: block !important; 
 }
 
 .dropdown-menu .logout-button {
-    background-color: #0863ae;
+    background-color: var(--accent);
 }
-.dropdown-menu .logout-button:hover {
-    background-color: #06518e;
-}
+
 .dropdown-menu .bell-button {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f1f5f9;
-    color: #1e293b;
+    background-color: var(--bg-main);
+    color: var(--text-main);
     width: 100px;
     height: 40px;
     padding: 0;
     margin: 0 auto;
 }
+
 .dropdown-menu .bell-icon {
     font-size: 26px;
 }
@@ -154,11 +190,12 @@ button {
     display: inline-block;
     line-height: 1;
 }
+
 .logout-button {
     width: 100%;
 }
 
-/* ---------- bell ---------- */
+/* ---------- 5. BELL NOTIFICATIONS ---------- */
 .bell-button {
     position: relative;
     display: flex;
@@ -167,13 +204,14 @@ button {
     width: 40px;
     height: 40px;
     padding: 0;
-    background-color: #f1f5f9;
+    background-color: var(--bg-main);
     border-radius: 50%;
     transition: background-color 0.2s ease;
     margin: 0 auto;
+    color: var(--text-main);
 }
 
-.bell-button:hover { background-color: #e2e8f0; }
+.bell-button:hover { background-color: var(--border-color); }
 .bell-icon { 
     font-size: 18px; 
     line-height: 1;
@@ -194,10 +232,10 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid #ffffff;
+    border: 2px solid var(--card-bg);
 }
 
-/* ---------- welcome row / ticket form ---------- */
+/* ---------- 6. WELCOME ROW / TICKET FORM ---------- */
 .welcome-row {
     display: flex;
     justify-content: center;
@@ -206,14 +244,15 @@ button {
 }
 
 .welcome-row .eyebrow {
-    background-color: #0863ae;
+    background-color: var(--accent);
     padding: 8px 14px;
     border-radius: 10px;
-    line-height:1.2;
-    display:inline-block;
-    color:white;
+    line-height: 1.2;
+    display: inline-block;
+    color: white;
     font-size: 20px;
 }
+
 .dropdown {
     position: relative;
     display: inline-block;
@@ -227,12 +266,12 @@ button {
     top: 100%;
     right: 0;
     z-index: 50;
-    background-color: #ffffff;
-    border: 1px solid #e5e7eb;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
     padding: 20px;
     width: 320px;
     border-radius: 8px;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
 }
 
 .ticket-form.show { display: block; }
@@ -246,25 +285,15 @@ button {
 .login {
     width: min(90%, 400px);
     padding: 32px;
-    background: white;
+    background: var(--card-bg);
     border-radius: 12px;
-    box-shadow: 0 4px 20px #00000012;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
 }
 
-.summary-card:hover {
-    background-color: #ca5121;
-    color: white;
-}
-.summary-label {
-    display: inline-block;
-    line-height: 1.2;
-}
-.summar-label:hover {
-    color: white;
-}
+/* ---------- 7. CARDS & GRIDS ---------- */
 .summary-grid {
     display: grid;
-    grid-template-columns: repeat(3, max-content);  /* columns only as wide as the content */
+    grid-template-columns: repeat(3, max-content);  
     gap: 16px;
     justify-content: start;
 }
@@ -274,47 +303,68 @@ button {
     font-size: 20px;
     padding: 12px 14px;
     border-radius: 16px;
-    background-color: #fbfbfb9f;
+    background-color: var(--summary-card-bg);
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.4s ease-in-out,
-                color 0.4s ease-in-out;            
+    color: var(--text-main);
+    transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;            
 }
 
+.summary-card:hover {
+    background-color: var(--brand-orange);
+    color: white;
+}
+
+.summary-label {
+    display: inline-block;
+    line-height: 1.2;
+}
+
+.summary-label:hover {
+    color: white;
+}
+
+/* ---------- 8. TICKET ENTRIES ---------- */
 .ticket-list-section {
     margin-top: 24px;
-    color: #0863ae;
+    color: var(--accent);
 }
 
 .ticket-item {
     display: flex;
     flex-direction: column;
     gap: 4px;
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
     border-radius: 8px;
     padding: 12px 16px;
     margin-bottom: 8px;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
 }
 
-.ticket-item span { color: #64748b; font-size: 14px; }
-.ticket-item strong { font-size: 16px; }
+.ticket-item span { 
+    color: var(--secondary-text); 
+    font-size: 14px; 
+}
+
+.ticket-item strong { 
+    font-size: 16px; 
+    color: var(--text-main);
+}
 
 .ticket-description {
     margin: 4px 0 0;
-    color: #1e293b;
+    color: var(--text-main);
     font-size: 14px;
-    white-space: pre-wrap;   /* keeps line breaks from the textarea */
+    white-space: pre-wrap;   
 }
+
 .cancel-ticket-button {
     align-self: flex-start;
     margin-top: 8px;
     padding: 8px 14px;
-    background-color: #0863ae;
+    background-color: var(--accent);
     font-size: 14px;
 }
-
-.cancel-ticket-button:hover { background-color: #087eae; }
 
 .ticket-actions {
     margin-top: 8px;
@@ -332,24 +382,25 @@ button {
     display: none;
 }
 
-.cancel-ticket-button:hover { background-color: #076d95; }
 .confirm-row span {
-    color: #1e293b;
+    color: var(--text-main);
     font-size: 14px;
     font-weight: 600;
 }
 
 .keep-ticket-button {
     padding: 8px 14px;
-    background-color: #64748b;
+    background-color: var(--secondary-text);
     font-size: 14px;
 }
 
-.keep-ticket-button:hover { background-color: #475569; }
+.keep-ticket-button:hover { 
+    background-color: #475569; 
+}
 
 .ticket-error {
     margin: 8px 0 0;
-    color: #087eae;
+    color: var(--brand-orange);
     font-size: 14px;
 }
 
@@ -364,5 +415,94 @@ button {
 }
 
 .brand {
-    color: #ca5121;
+    color: var(--brand-orange);
+}
+
+/*------theme switch------*/
+.theme-switch {
+    position: fixed;
+    width: 52px;
+    height: 28px;
+    padding: 0;               /* overrides your generic button padding */
+    border-radius: 999px;
+    background-color: var(--input-border);
+    transition: background-color 0.25s ease;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+}
+
+.theme-switch:hover {
+    background-color: var(--input-border);  /* stops the generic button hover color */
+}
+
+.theme-thumb {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    transition: transform 0.25s ease;
+}
+
+/* ON state */
+:root.dark-mode .theme-switch {
+    background-color: var(--accent);
+}
+
+:root.dark-mode .theme-switch:hover {
+    background-color: var(--accent-hover);
+}
+
+:root.dark-mode .theme-thumb {
+    transform: translateX(24px);   /* track width 52 - thumb 22 - 2×3 padding = 24 */
+}
+
+.theme-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    line-height: 1;
+    pointer-events: none;      /* clicks pass through to the button */
+}
+
+.theme-icon { transition: opacity 0.25s ease; }
+.theme-icon.sun  {
+    left: 7px;
+}
+.theme-icon.moon {
+    right: 7px;
+}
+:root.dark-mode .theme-icon.sun  { opacity: 1; }
+:root.dark-mode .theme-icon.moon { opacity: 0; }
+
+.theme-control {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.theme-switch {
+    position: relative;  
+    flex-shrink: 0;
+}
+
+.theme-control .toggle {
+    margin: 0;
+    font-size: 18px;
+    color: var(--text-main);
+}
+.theme-control .theme-switch {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    top: auto;
+    right: auto;
 }
