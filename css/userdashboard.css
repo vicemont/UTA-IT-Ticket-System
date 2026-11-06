@@ -1,18 +1,17 @@
-/* 1. Default Light Mode Styles */
+/* Default Light Mode Styles */
 :root {
-    --bg-main: #f1f5f9;         /* RESTORED: Your original body background */
-    --text-main: #1e293b;       /* RESTORED: Your original body text color */
-    --card-bg: #ffffff;         /* RESTORED: Your original white for cards/topbar */
-    --accent: #0863ae;          /* Your original blue button/brand color */
-    --accent-hover: #06518e;    /* Your original button hover color */
-    --border-color: #e2e8f0;    /* Your original topbar/ticket border */
-    --input-border: #cbd5e1;    /* Your original input border */
-    --secondary-text: #64748b;  /* Your original ticket span color */
-    --summary-card-bg: #fbfbfb9f; /* RESTORED: Your original summary card background */
+    --bg-main: #f1f5f9;        
+    --text-main: #1e293b;      
+    --card-bg: #ffffff;        
+    --accent: #0863ae;         
+    --accent-hover: #06518e;    
+    --border-color: #e2e8f0;   
+    --input-border: #cbd5e1;    
+    --summary-card-bg: #fbfbfb9f; 
     --brand-orange: #ca5121;
 }
 
-/* 2. Dark Mode Styles (Triggered when .dark-mode class is applied) */
+/* Dark Mode Styles (Triggered when .dark-mode class is applied) */
 :root.dark-mode {
     --bg-main: #121212;
     --text-main: #f5f5f5;
@@ -29,8 +28,8 @@ body {
     margin: 0;
     min-height: 100vh;
     font-family: Arial, sans-serif;
-    background: var(--bg-main);   /* Dynamic background */
-    color: var(--text-main);       /* Dynamic text */
+    background: var(--bg-main);   
+    color: var(--text-main);     
     padding: 20px;
 }
 
@@ -66,7 +65,7 @@ button:hover {
     background-color: var(--accent-hover);
 }
 
-/* ---------- 3. TOP BAR ---------- */
+/* ---------- TOP BAR ---------- */
 .topbar {
     position: relative;
     display: flex;
@@ -133,7 +132,7 @@ button:hover {
     text-decoration: none;
 }
 
-/* ---------- 4. DROPDOWN MENU ---------- */
+/* ---------- DROPDOWN MENU ---------- */
 .dropdown-menu { 
     display: none;
     background: var(--card-bg);
@@ -199,7 +198,7 @@ button:hover {
     width: 100%;
 }
 
-/* ---------- 5. BELL NOTIFICATIONS ---------- */
+/* ---------- BELL NOTIFICATIONS ---------- */
 .bell-button {
     position: relative;
     display: flex;
@@ -239,7 +238,7 @@ button:hover {
     border: 2px solid var(--card-bg);
 }
 
-/* ---------- 6. WELCOME ROW / TICKET FORM ---------- */
+/* ---------- WELCOME ROW / TICKET FORM ---------- */
 .welcome-row {
     display: flex;
     justify-content: center;
@@ -301,7 +300,7 @@ button:hover {
     box-shadow: 0 4px 20px rgba(0,0,0,0.15);
 }
 
-/* ---------- 7. CARDS & GRIDS ---------- */
+/* ---------- CARDS & GRIDS ---------- */
 .summary-grid {
     display: grid;
     grid-template-columns: repeat(3, max-content);  
@@ -334,7 +333,7 @@ button:hover {
     color: white;
 }
 
-/* ---------- 8. TICKET ENTRIES ---------- */
+/* ---------- TICKET ENTRIES ---------- */
 .ticket-list-section {
     margin-top: 24px;
     color: var(--accent);
@@ -434,7 +433,7 @@ button:hover {
     position: fixed;
     width: 52px;
     height: 28px;
-    padding: 0;               /* overrides your generic button padding */
+    padding: 0;               
     border-radius: 999px;
     background-color: var(--input-border);
     transition: background-color 0.25s ease;
@@ -444,7 +443,7 @@ button:hover {
 }
 
 .theme-switch:hover {
-    background-color: var(--input-border);  /* stops the generic button hover color */
+    background-color: var(--input-border);  
 }
 
 .theme-thumb {
