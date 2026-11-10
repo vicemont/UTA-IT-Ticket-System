@@ -41,7 +41,7 @@ $comments = $c->fetchAll();
 <header><h1>UTA IT Support</h1></header>
 
 <div class="ticket-detail">
-    <a href="index.php" class="back-link">&larr; Back to tickets</a>
+    <a href="IT_Staff_Dashboard.php" class="back-link">&larr; Back to tickets</a>
 
     <div class="card ticket-info">
         <h2><?= e($ticket['title']) ?></h2>
