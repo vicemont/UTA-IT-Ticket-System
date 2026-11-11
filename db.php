@@ -1,9 +1,12 @@
 <?php
-// Database connection. Edit these four values for your server.
+// Database connection. Edit these values for your server.
 const DB_HOST = 'localhost';
 const DB_NAME = 'it_tickets';
 const DB_USER = 'root';
 const DB_PASS = '';
+
+// Uses the session started by the existing login page.
+if (session_status() === PHP_SESSION_NONE) session_start();
 
 try {
     $pdo = new PDO(
@@ -22,3 +25,12 @@ try {
 }
 
 function e($s) { return htmlspecialchars((string)$s, ENT_QUOTES, 'UTF-8'); }
+
+/* ------------------------------------------------------------------
+   CONNECT TO THE EXISTING LOGIN:
+   These two functions are the only place the app reads the login
+   session. I don't know what your login page stores, so adjust the
+   session keys below to match it.
+------------------------------------------------------------------- */
+function isStaff()      { return ($_SESSION['role'] ?? '') === 'it'; }
+function currentName()  { return (string)($_SESSION['name'] ?? ''); }

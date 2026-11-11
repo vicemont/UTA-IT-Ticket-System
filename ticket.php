@@ -8,18 +8,25 @@ $stmt->execute([$id]);
 $ticket = $stmt->fetch();
 if (!$ticket) { http_response_code(404); exit('Ticket not found.'); }
 
-// Handle new comment
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $name = trim($_POST['name'] ?? '');
-    $role = ($_POST['role'] ?? 'user') === 'it' ? 'it' : 'user';
-    $body = trim($_POST['body'] ?? '');
+$isClosed = $ticket['status'] === 'closed';
 
-    if ($name !== '' && $body !== '') {
-        $ins = $pdo->prepare(
-            'INSERT INTO ticket_comments (ticket_id, author_name, author_role, body)
-             VALUES (?, ?, ?, ?)'
-        );
-        $ins->execute([$id, mb_substr($name, 0, 100), $role, mb_substr($body, 0, 3000)]);
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $action = $_POST['action'] ?? 'comment';
+
+    if ($action === 'comment' && !$isClosed) { // closed tickets reject new comments
+        $name = trim($_POST['name'] ?? '');
+        $body = trim($_POST['body'] ?? '');
+        $role = isStaff() ? 'it' : 'user';
+        if ($name !== '' && $body !== '') {
+            $ins = $pdo->prepare(
+                'INSERT INTO ticket_comments (ticket_id, author_name, author_role, body)
+                 VALUES (?, ?, ?, ?)'
+            );
+            $ins->execute([$id, mb_substr($name, 0, 100), $role, mb_substr($body, 0, 3000)]);
+        }
+    } elseif (($action === 'close' || $action === 'reopen') && isStaff()) {
+        $upd = $pdo->prepare('UPDATE tickets SET status = ? WHERE id = ?');
+        $upd->execute([$action === 'close' ? 'closed' : 'open', $id]);
     }
     header("Location: ticket.php?id=$id"); // avoid resubmit on refresh
     exit;
@@ -53,12 +60,24 @@ $comments = $c->fetchAll();
         </p>
         <h3>Description</h3>
         <p><?= nl2br(e($ticket['description'])) ?></p>
+
+        <?php if (isStaff()): ?>
+            <form method="post" class="status-form">
+                <?php if (!$isClosed): ?>
+                    <input type="hidden" name="action" value="close">
+                    <button type="submit">Close Ticket</button>
+                <?php else: ?>
+                    <input type="hidden" name="action" value="reopen">
+                    <button type="submit">Reopen Ticket</button>
+                <?php endif; ?>
+            </form>
+        <?php endif; ?>
     </div>
 
     <h3>Comments</h3>
     <div class="comments">
         <?php if (!$comments): ?>
-            <p>No comments yet.</p>
+            <p>No comments.</p>
         <?php endif; ?>
         <?php foreach ($comments as $cm): ?>
             <div class="comment <?= $cm['author_role'] === 'it' ? 'comment-it' : 'comment-user' ?>">
@@ -72,17 +91,18 @@ $comments = $c->fetchAll();
         <?php endforeach; ?>
     </div>
 
-    <form method="post" class="comment-form">
-        <div class="form-row">
-            <input type="text" name="name" placeholder="Your name" required>
-            <select name="role">
-                <option value="user">User</option>
-                <option value="it">IT Staff</option>
-            </select>
-        </div>
-        <textarea name="body" rows="4" placeholder="Write a comment..." required></textarea>
-        <button type="submit">Post Comment</button>
-    </form>
+    <?php if ($isClosed): ?>
+        <p class="closed-note">This ticket is closed, so new comments can't be added.</p>
+    <?php else: ?>
+        <form method="post" class="comment-form">
+            <input type="hidden" name="action" value="comment">
+            <div class="form-row">
+                <input type="text" name="name" value="<?= e(currentName()) ?>" placeholder="Your name" required>
+            </div>
+            <textarea name="body" rows="4" placeholder="Write a comment..." required></textarea>
+            <button type="submit">Post Comment</button>
+        </form>
+    <?php endif; ?>
 </div>
 </body>
 </html>
