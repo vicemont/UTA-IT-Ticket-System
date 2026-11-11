@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             passwordInput.type = isHidden ? "text" : "password";
             togglePasswordButton.textContent = isHidden ? "Hide password" : "Show password";
+            togglePasswordButton.setAttribute("aria-pressed", String(isHidden));
         });
     }
 
@@ -32,4 +33,3 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
-

@@ -17,20 +17,18 @@ if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'user') {
     <script src="js/userdashboard-menu.js" defer></script>
 </head>
 <body>
-    <header class ="topbar" style="display: flex; align-items: center; width: 100%; box-sizing: border-box; background-color: #ffffff; padding: 10px 20px;">
-        <a class ="brand" href="userdashboard.php" aria-label = "UTA IT Support Portal Home" style="text-decoration:none;">
-            <img src="images/UTA_logomark.png" width="24" height="24">
-            <span>UTA</span>
-            <span><strong>IT Support Portal </strong>Student & Faculty Services</span>
+    <header class ="topbar">
+        <a class ="brand" href="userdashboard.php" aria-label = "UTA IT Support Portal Home">
+            <span class="page-name"><strong>UT<img width="16" height="16" src="images/UTA_logomark.png" width="24" height="24"> IT Support Portal Student & Faculty Services</strong></span>
         </a>
         <!--hamburger menu-->
-        <div class="top-actions" style="margin-left: auto; position: relative;"> 
-            <button id="hamburger" class ="three-lines" type="button" style="cursor: pointer; display: flex; align-items: center; justify-content: center;background-color: #087eae; border: none; border-radius: 8px; padding: 12px;">
+        <div class="top-actions"> 
+            <button id="hamburger" class ="three-lines" type="button">
                 <img src="images/hamburger-menu-icon.png" width="24" height="24" alt="Menu"> 
             </button>   
         </div>
         <!--dropdown menu-->
-        <div class="dropdown-menu" style="display: none; position: absolute; right: 0; top: 100%; background: white; border: 1px solid #ccc; box-shadow: 0 4px 6px rgba(0,0,0,0.1); padding: 10px; border-radius: 4px; z-index: 1000;">
+        <div class="dropdown-menu">
             <!--notifcation button-->
             <button id="notificationsButton" class ="bell-button" type ="button" aria-expanded="false" aria-label="View notifications">
                 <span class="bell-icon">🔔</span>
@@ -44,9 +42,8 @@ if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'user') {
     <main class="page">
         <section class ="welcome-row">
             <div>
-                <p class="eyebrow">USER DASHBOARD</p>
-                <h1 id = "WelcomeHeading">Welcome to IT Support</h1>
-                <p class="muted">Create a ticket or check the status of an existing request.</p>
+                <p class="eyebrow"><strong>User Dashboard</strong></p>
+                <h1 id="WelcomeHeading" style="font-family:Geneva, Verdana, sans-serif;">Welcome to IT Support</h1>
             </div>
             <!--Trigger for Dropdown form-->
             <div class ="dropdown">
@@ -137,5 +134,14 @@ if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'user') {
             <h2 id="ticketListHeading">Select a status to view your tickets</h2>
             <div class="ticket-background" id="ticketList"></div>
         </section>
+
+        <div class="theme-control">
+            <button type="button" id="themeToggle" class="theme-switch" role="switch" aria-checked="false" aria-label="Toggle dark mode">
+                <span class="theme-icon sun">☀️</span>
+                <span class="theme-icon moon">🌙</span>
+                <span class="theme-thumb"></span>
+            </button>
+            <p class="toggle">Toggle for Light/Dark Mode</p>
+        <script src="js/usertheme.js"></script>
     </main>
 </body>

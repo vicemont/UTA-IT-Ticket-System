@@ -2,7 +2,7 @@
 
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
-$host = 'localhost';
+$host = '127.0.0.1';
 $user = 'root';
 $password = '';
 $database = 'users_staff_db';

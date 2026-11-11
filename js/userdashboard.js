@@ -7,27 +7,26 @@ function ticketForm() {
 
 function updateDashboardCounters() {
     fetch('php/get-ticket-counts.php')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error("HTTP error " + response.status);
-        }
-        return response.json();
-    })
-    .then(data => {
-        if (data.error) {
-            console.error("Database error:", data.error);
-            return;
-        }
-        // Updates your HTML elements with live database figures
-        document.getElementById('openCount').textContent = data.open;
-        document.getElementById('inProgressCount').textContent = data.in_progress;
-        document.getElementById('resolvedCount').textContent = data.resolved;
-    })
-    .catch(error => {
-        console.error('Error getting ticket counts:', error);
-        // If it fails, fallback to 0 instead of a blank dash
-        document.getElementById('openCount').textContent = "0";
-    });
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("HTTP error " + response.status);
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.error) {
+                throw new Error(data.error);
+            }
+            document.getElementById('openCount').textContent = data.open;
+            document.getElementById('inProgressCount').textContent = data.in_progress;
+            document.getElementById('resolvedCount').textContent = data.resolved;
+        })
+        .catch(error => {
+            console.error('Error getting ticket counts:', error);
+            document.getElementById('openCount').textContent = "N/A";
+            document.getElementById('inProgressCount').textContent = "N/A";
+            document.getElementById('resolvedCount').textContent = "N/A";
+        });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
