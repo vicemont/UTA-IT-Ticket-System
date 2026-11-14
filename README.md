@@ -15,3 +15,7 @@ The user dashboard lists each user's tickets under New, In Progress, Resolved, a
 Canceled filters. Staff can view all tickets in the same status groups and sort by
 submission time or priority. Users can cancel their own active tickets from the
 ticket list.
+
+Staff accounts are redirected to `IT_Staff_Dashboard.php` after login. The staff
+dashboard uses the same `users_staff_db` database as login and ticket submission,
+and allows staff to search tickets and update their status.

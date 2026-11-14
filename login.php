@@ -81,7 +81,7 @@ if ($user && $passwordIsValid) {
     $_SESSION['user_role'] = $user['role'];
 
     if ($user['role'] === 'staff') {
-        header('Location: staff_dashboard.php');
+        header('Location: IT_Staff_Dashboard.php');
         exit();
     }
 

@@ -180,3 +180,1922 @@ a.card-link { text-decoration: none; color: inherit; display: block; }
     height: auto;
     overflow: visible;
 }
+/* ---- Append to the END of ITstaffstyles.css ----
+   Nothing here changes how the existing list page looks. */
+
+/* Card links: keep the cards looking exactly as before */
+a.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.card h3 small {
+    font-weight: normal;
+    color: #666;
+    font-size: .9rem;
+}
+
+/* Search tab */
+.search-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+    .search-form input {
+        flex: 1;
+        padding: 12px;
+        font-size: 1rem;
+        font-family: inherit;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        box-sizing: border-box;
+    }
+
+    .search-form button {
+        padding: 12px 24px;
+        background: #2c3e50;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 1rem;
+    }
+
+        .search-form button:hover {
+            background: #1f2d3a;
+        }
+
+/* Ticket detail page */
+.ticket-detail {
+    width: 90%;
+    max-width: 900px;
+    margin: 30px auto;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 15px;
+    color: #2c3e50;
+    text-decoration: none;
+}
+
+.ticket-info {
+    height: auto;
+    margin-bottom: 30px;
+}
+
+    .ticket-info .meta {
+        color: #666;
+    }
+
+.closed-note {
+    padding: 12px 16px;
+    background: #f5f5f5;
+    border-radius: 6px;
+    color: #555;
+}
+
+/* Close / reopen */
+.status-form {
+    margin-top: 15px;
+}
+
+    .status-form button {
+        padding: 10px 20px;
+        background: #2c3e50;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+        .status-form button:hover {
+            background: #1f2d3a;
+        }
+
+/* Comments */
+.comments {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.comment {
+    padding: 12px 16px;
+    border-radius: 8px;
+    border-left: 4px solid #999;
+    background: #f5f5f5;
+}
+
+.comment-it {
+    background: #eaf2fb;
+    border-left-color: #2c7be5;
+}
+
+.comment-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: .9rem;
+}
+
+    .comment-head .time {
+        margin-left: auto;
+        color: #888;
+        font-size: .8rem;
+    }
+
+.comment p {
+    margin: 8px 0 0;
+}
+
+.badge {
+    background: #2c7be5;
+    color: #fff;
+    font-size: .7rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+.comment-form .form-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.comment-form input, .comment-form textarea {
+    padding: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.comment-form input {
+    flex: 1;
+}
+
+.comment-form textarea {
+    width: 100%;
+}
+
+.comment-form button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #2c3e50;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+    .comment-form button:hover {
+        background: #1f2d3a;
+    }
+
+/* New ticket form */
+.new-ticket-form label {
+    display: block;
+    margin: 12px 0 6px;
+    font-weight: bold;
+}
+
+.new-ticket-form input[type="text"], .new-ticket-form select {
+    width: 100%;
+}
+
+.new-ticket-form .form-row {
+    gap: 15px;
+}
+
+.new-ticket-form .form-col {
+    flex: 1;
+}
+
+.new-ticket-form select {
+    padding: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    background: #fff;
+}
+
+.form-error {
+    color: #b00020;
+    font-weight: bold;
+    margin: 8px 0;
+}
+/* ---- Append to the END of ITstaffstyles.css ----
+   Nothing here changes how the existing list page looks. */
+
+/* Card links: keep the cards looking exactly as before */
+a.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.card h3 small {
+    font-weight: normal;
+    color: #666;
+    font-size: .9rem;
+}
+
+/* Search tab */
+.search-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+    .search-form input {
+        flex: 1;
+        padding: 12px;
+        font-size: 1rem;
+        font-family: inherit;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        box-sizing: border-box;
+    }
+
+    .search-form button {
+        padding: 12px 24px;
+        background: #2c3e50;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 1rem;
+    }
+
+        .search-form button:hover {
+            background: #1f2d3a;
+        }
+
+/* Ticket detail page */
+.ticket-detail {
+    width: 90%;
+    max-width: 900px;
+    margin: 30px auto;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 15px;
+    color: #2c3e50;
+    text-decoration: none;
+}
+
+.ticket-info {
+    height: auto;
+    margin-bottom: 30px;
+}
+
+    .ticket-info .meta {
+        color: #666;
+    }
+
+.closed-note {
+    padding: 12px 16px;
+    background: #f5f5f5;
+    border-radius: 6px;
+    color: #555;
+}
+
+/* Close / reopen */
+.status-form {
+    margin-top: 15px;
+}
+
+    .status-form button {
+        padding: 10px 20px;
+        background: #2c3e50;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+        .status-form button:hover {
+            background: #1f2d3a;
+        }
+
+/* Comments */
+.comments {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.comment {
+    padding: 12px 16px;
+    border-radius: 8px;
+    border-left: 4px solid #999;
+    background: #f5f5f5;
+}
+
+.comment-it {
+    background: #eaf2fb;
+    border-left-color: #2c7be5;
+}
+
+.comment-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: .9rem;
+}
+
+    .comment-head .time {
+        margin-left: auto;
+        color: #888;
+        font-size: .8rem;
+    }
+
+.comment p {
+    margin: 8px 0 0;
+}
+
+.badge {
+    background: #2c7be5;
+    color: #fff;
+    font-size: .7rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+.comment-form .form-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.comment-form input, .comment-form textarea {
+    padding: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.comment-form input {
+    flex: 1;
+}
+
+.comment-form textarea {
+    width: 100%;
+}
+
+.comment-form button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #2c3e50;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+    .comment-form button:hover {
+        background: #1f2d3a;
+    }
+
+/* New ticket form */
+.new-ticket-form label {
+    display: block;
+    margin: 12px 0 6px;
+    font-weight: bold;
+}
+
+.new-ticket-form input[type="text"], .new-ticket-form select {
+    width: 100%;
+}
+
+.new-ticket-form .form-row {
+    gap: 15px;
+}
+
+.new-ticket-form .form-col {
+    flex: 1;
+}
+
+.new-ticket-form select {
+    padding: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    background: #fff;
+}
+
+.form-error {
+    color: #b00020;
+    font-weight: bold;
+    margin: 8px 0;
+}
+
+/* Staff actions on the ticket page */
+.staff-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 15px;
+}
+
+    .staff-actions .status-form {
+        margin-top: 0;
+    }
+
+.button-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #2c3e50;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13.33px;
+}
+
+    .button-link:hover {
+        background: #1f2d3a;
+    }
+
+.new-ticket-form input[type="datetime-local"] {
+    width: 100%;
+    padding: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+/* ---- Append to the END of ITstaffstyles.css ----
+   Nothing here changes how the existing list page looks. */
+
+/* Card links: keep the cards looking exactly as before */
+a.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.card h3 small {
+    font-weight: normal;
+    color: #666;
+    font-size: .9rem;
+}
+
+/* Search tab */
+.search-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+    .search-form input {
+        flex: 1;
+        padding: 12px;
+        font-size: 1rem;
+        font-family: inherit;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        box-sizing: border-box;
+    }
+
+    .search-form button {
+        padding: 12px 24px;
+        background: #2c3e50;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 1rem;
+    }
+
+        .search-form button:hover {
+            background: #1f2d3a;
+        }
+
+/* Ticket detail page */
+.ticket-detail {
+    width: 90%;
+    max-width: 900px;
+    margin: 30px auto;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 15px;
+    color: #2c3e50;
+    text-decoration: none;
+}
+
+.ticket-info {
+    height: auto;
+    margin-bottom: 30px;
+}
+
+    .ticket-info .meta {
+        color: #666;
+    }
+
+.closed-note {
+    padding: 12px 16px;
+    background: #f5f5f5;
+    border-radius: 6px;
+    color: #555;
+}
+
+/* Close / reopen */
+.status-form {
+    margin-top: 15px;
+}
+
+    .status-form button {
+        padding: 10px 20px;
+        background: #2c3e50;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+        .status-form button:hover {
+            background: #1f2d3a;
+        }
+
+/* Comments */
+.comments {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.comment {
+    padding: 12px 16px;
+    border-radius: 8px;
+    border-left: 4px solid #999;
+    background: #f5f5f5;
+}
+
+.comment-it {
+    background: #eaf2fb;
+    border-left-color: #2c7be5;
+}
+
+.comment-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: .9rem;
+}
+
+    .comment-head .time {
+        margin-left: auto;
+        color: #888;
+        font-size: .8rem;
+    }
+
+.comment p {
+    margin: 8px 0 0;
+}
+
+.badge {
+    background: #2c7be5;
+    color: #fff;
+    font-size: .7rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+.comment-form .form-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.comment-form input, .comment-form textarea {
+    padding: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.comment-form input {
+    flex: 1;
+}
+
+.comment-form textarea {
+    width: 100%;
+}
+
+.comment-form button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #2c3e50;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+    .comment-form button:hover {
+        background: #1f2d3a;
+    }
+
+/* New ticket form */
+.new-ticket-form label {
+    display: block;
+    margin: 12px 0 6px;
+    font-weight: bold;
+}
+
+.new-ticket-form input[type="text"], .new-ticket-form select {
+    width: 100%;
+}
+
+.new-ticket-form .form-row {
+    gap: 15px;
+}
+
+.new-ticket-form .form-col {
+    flex: 1;
+}
+
+.new-ticket-form select {
+    padding: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    background: #fff;
+}
+
+.form-error {
+    color: #b00020;
+    font-weight: bold;
+    margin: 8px 0;
+}
+
+/* Staff actions on the ticket page */
+.staff-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 15px;
+}
+
+    .staff-actions .status-form {
+        margin-top: 0;
+    }
+
+.button-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #2c3e50;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13.33px;
+}
+
+    .button-link:hover {
+        background: #1f2d3a;
+    }
+
+.new-ticket-form input[type="datetime-local"] {
+    width: 100%;
+    padding: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+/* Overdue notifications (staff dashboard) */
+.alerts {
+    width: 90%;
+    margin: 25px auto 0;
+    box-sizing: border-box;
+    padding: 15px 20px;
+    background: #fdecea;
+    border-left: 5px solid #c0392b;
+    border-radius: 6px;
+}
+
+    .alerts h2 {
+        margin: 0 0 10px;
+        font-size: 1.1rem;
+        color: #922b21;
+    }
+
+    .alerts ul {
+        margin: 0;
+        padding-left: 20px;
+    }
+
+    .alerts li {
+        margin: 6px 0;
+    }
+
+    .alerts a {
+        color: #922b21;
+        font-weight: bold;
+    }
+
+/* Read-only fields on the edit page */
+.readonly-field {
+    margin: 0 0 6px;
+    padding: 10px;
+    background: #f5f5f5;
+    border-radius: 6px;
+    color: #444;
+}
+/* ---- Append to the END of ITstaffstyles.css ----
+   Nothing here changes how the existing list page looks. */
+
+/* Card links: keep the cards looking exactly as before */
+a.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.card h3 small {
+    font-weight: normal;
+    color: #666;
+    font-size: .9rem;
+}
+
+/* Search tab */
+.search-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+    .search-form input {
+        flex: 1;
+        padding: 12px;
+        font-size: 1rem;
+        font-family: inherit;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        box-sizing: border-box;
+    }
+
+    .search-form button {
+        padding: 12px 24px;
+        background: #2c3e50;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 1rem;
+    }
+
+        .search-form button:hover {
+            background: #1f2d3a;
+        }
+
+/* Ticket detail page */
+.ticket-detail {
+    width: 90%;
+    max-width: 900px;
+    margin: 30px auto;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 15px;
+    color: #2c3e50;
+    text-decoration: none;
+}
+
+.ticket-info {
+    height: auto;
+    margin-bottom: 30px;
+}
+
+    .ticket-info .meta {
+        color: #666;
+    }
+
+.closed-note {
+    padding: 12px 16px;
+    background: #f5f5f5;
+    border-radius: 6px;
+    color: #555;
+}
+
+/* Close / reopen */
+.status-form {
+    margin-top: 15px;
+}
+
+    .status-form button {
+        padding: 10px 20px;
+        background: #2c3e50;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+        .status-form button:hover {
+            background: #1f2d3a;
+        }
+
+/* Comments */
+.comments {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.comment {
+    padding: 12px 16px;
+    border-radius: 8px;
+    border-left: 4px solid #999;
+    background: #f5f5f5;
+}
+
+.comment-it {
+    background: #eaf2fb;
+    border-left-color: #2c7be5;
+}
+
+.comment-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: .9rem;
+}
+
+    .comment-head .time {
+        margin-left: auto;
+        color: #888;
+        font-size: .8rem;
+    }
+
+.comment p {
+    margin: 8px 0 0;
+}
+
+.badge {
+    background: #2c7be5;
+    color: #fff;
+    font-size: .7rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+.comment-form .form-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.comment-form input, .comment-form textarea {
+    padding: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.comment-form input {
+    flex: 1;
+}
+
+.comment-form textarea {
+    width: 100%;
+}
+
+.comment-form button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #2c3e50;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+    .comment-form button:hover {
+        background: #1f2d3a;
+    }
+
+/* New ticket form */
+.new-ticket-form label {
+    display: block;
+    margin: 12px 0 6px;
+    font-weight: bold;
+}
+
+.new-ticket-form input[type="text"], .new-ticket-form select {
+    width: 100%;
+}
+
+.new-ticket-form .form-row {
+    gap: 15px;
+}
+
+.new-ticket-form .form-col {
+    flex: 1;
+}
+
+.new-ticket-form select {
+    padding: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    background: #fff;
+}
+
+.form-error {
+    color: #b00020;
+    font-weight: bold;
+    margin: 8px 0;
+}
+
+/* Staff actions on the ticket page */
+.staff-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 15px;
+}
+
+    .staff-actions .status-form {
+        margin-top: 0;
+    }
+
+.button-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #2c3e50;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13.33px;
+}
+
+    .button-link:hover {
+        background: #1f2d3a;
+    }
+
+.new-ticket-form input[type="datetime-local"] {
+    width: 100%;
+    padding: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+/* Overdue notifications (staff dashboard) */
+.alerts {
+    width: 90%;
+    margin: 25px auto 0;
+    box-sizing: border-box;
+    padding: 15px 20px;
+    background: #fdecea;
+    border-left: 5px solid #c0392b;
+    border-radius: 6px;
+}
+
+    .alerts h2 {
+        margin: 0 0 10px;
+        font-size: 1.1rem;
+        color: #922b21;
+    }
+
+    .alerts ul {
+        margin: 0;
+        padding-left: 20px;
+    }
+
+    .alerts li {
+        margin: 6px 0;
+    }
+
+    .alerts a {
+        color: #922b21;
+        font-weight: bold;
+    }
+
+/* Read-only fields on the edit page */
+.readonly-field {
+    margin: 0 0 6px;
+    padding: 10px;
+    background: #f5f5f5;
+    border-radius: 6px;
+    color: #444;
+}
+
+/* Automatic "IT" notes (reassigned / reopened) - different from user and staff comments */
+.comment-system {
+    background: #fff8e1;
+    border-left: 4px dashed #e0a800;
+    font-style: italic;
+}
+
+    .comment-system .comment-head strong {
+        font-style: normal;
+        color: #8a6d00;
+        letter-spacing: .05em;
+    }
+
+/* Priority colors: a soft tint and a colored left edge */
+.card.priority-high {
+    border-left: 6px solid #d9534f;
+    background: #fdf3f2;
+}
+
+.card.priority-medium {
+    border-left: 6px solid #f0902e;
+    background: #fff6ec;
+}
+
+.card.priority-low {
+    border-left: 6px solid #e8c52f;
+    background: #fffbe8;
+}
+/* ---- Append to the END of ITstaffstyles.css ----
+   Nothing here changes how the existing list page looks. */
+
+/* Card links: keep the cards looking exactly as before */
+a.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.card h3 small {
+    font-weight: normal;
+    color: #666;
+    font-size: .9rem;
+}
+
+/* Search tab */
+.search-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+    .search-form input {
+        flex: 1;
+        padding: 12px;
+        font-size: 1rem;
+        font-family: inherit;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        box-sizing: border-box;
+    }
+
+    .search-form button {
+        padding: 12px 24px;
+        background: #2c3e50;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 1rem;
+    }
+
+        .search-form button:hover {
+            background: #1f2d3a;
+        }
+
+/* Ticket detail page */
+.ticket-detail {
+    width: 90%;
+    max-width: 900px;
+    margin: 30px auto;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 15px;
+    color: #2c3e50;
+    text-decoration: none;
+}
+
+.ticket-info {
+    height: auto;
+    margin-bottom: 30px;
+}
+
+    .ticket-info .meta {
+        color: #666;
+    }
+
+.closed-note {
+    padding: 12px 16px;
+    background: #f5f5f5;
+    border-radius: 6px;
+    color: #555;
+}
+
+/* Close / reopen */
+.status-form {
+    margin-top: 15px;
+}
+
+    .status-form button {
+        padding: 10px 20px;
+        background: #2c3e50;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+        .status-form button:hover {
+            background: #1f2d3a;
+        }
+
+/* Comments */
+.comments {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.comment {
+    padding: 12px 16px;
+    border-radius: 8px;
+    border-left: 4px solid #999;
+    background: #f5f5f5;
+}
+
+.comment-it {
+    background: #eaf2fb;
+    border-left-color: #2c7be5;
+}
+
+.comment-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: .9rem;
+}
+
+    .comment-head .time {
+        margin-left: auto;
+        color: #888;
+        font-size: .8rem;
+    }
+
+.comment p {
+    margin: 8px 0 0;
+}
+
+.badge {
+    background: #2c7be5;
+    color: #fff;
+    font-size: .7rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+.comment-form .form-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.comment-form input, .comment-form textarea {
+    padding: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.comment-form input {
+    flex: 1;
+}
+
+.comment-form textarea {
+    width: 100%;
+}
+
+.comment-form button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #2c3e50;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+    .comment-form button:hover {
+        background: #1f2d3a;
+    }
+
+/* New ticket form */
+.new-ticket-form label {
+    display: block;
+    margin: 12px 0 6px;
+    font-weight: bold;
+}
+
+.new-ticket-form input[type="text"], .new-ticket-form select {
+    width: 100%;
+}
+
+.new-ticket-form .form-row {
+    gap: 15px;
+}
+
+.new-ticket-form .form-col {
+    flex: 1;
+}
+
+.new-ticket-form select {
+    padding: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    background: #fff;
+}
+
+.form-error {
+    color: #b00020;
+    font-weight: bold;
+    margin: 8px 0;
+}
+
+/* Staff actions on the ticket page */
+.staff-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 15px;
+}
+
+    .staff-actions .status-form {
+        margin-top: 0;
+    }
+
+.button-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #2c3e50;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13.33px;
+}
+
+    .button-link:hover {
+        background: #1f2d3a;
+    }
+
+.new-ticket-form input[type="datetime-local"] {
+    width: 100%;
+    padding: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+/* Overdue notifications (staff dashboard) */
+.alerts {
+    width: 90%;
+    margin: 25px auto 0;
+    box-sizing: border-box;
+    padding: 15px 20px;
+    background: #fdecea;
+    border-left: 5px solid #c0392b;
+    border-radius: 6px;
+}
+
+    .alerts h2 {
+        margin: 0 0 10px;
+        font-size: 1.1rem;
+        color: #922b21;
+    }
+
+    .alerts ul {
+        margin: 0;
+        padding-left: 20px;
+    }
+
+    .alerts li {
+        margin: 6px 0;
+    }
+
+    .alerts a {
+        color: #922b21;
+        font-weight: bold;
+    }
+
+/* Read-only fields on the edit page */
+.readonly-field {
+    margin: 0 0 6px;
+    padding: 10px;
+    background: #f5f5f5;
+    border-radius: 6px;
+    color: #444;
+}
+
+/* Automatic "IT" notes (reassigned / reopened) - different from user and staff comments */
+.comment-system {
+    background: #fff8e1;
+    border-left: 4px dashed #e0a800;
+    font-style: italic;
+}
+
+    .comment-system .comment-head strong {
+        font-style: normal;
+        color: #8a6d00;
+        letter-spacing: .05em;
+    }
+
+/* Priority colors: a soft tint and a colored left edge */
+.card.priority-high {
+    border-left: 6px solid #d9534f;
+    background: #fdf3f2;
+}
+
+.card.priority-medium {
+    border-left: 6px solid #f0902e;
+    background: #fff6ec;
+}
+
+.card.priority-low {
+    border-left: 6px solid #e8c52f;
+    background: #fffbe8;
+}
+
+/* Header styled like the user dashboard's top bar:
+   light bar, soft shadow and border, orange brand title. Same Arial font. */
+header {
+    background-color: #ffffff;
+    color: #ca5121; /* brand orange */
+    padding: 10px 20px;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    width: 100%;
+}
+
+    header h1 {
+        margin: 0;
+        font-size: 22px;
+        font-weight: bold;
+        font-family: Arial, sans-serif;
+        color: #ca5121; /* use #0863ae for the dashboard's blue page-name color instead */
+    }
+/* ---- Append to the END of ITstaffstyles.css ----
+   Nothing here changes how the existing list page looks. */
+
+/* Card links: keep the cards looking exactly as before */
+a.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.card h3 small {
+    font-weight: normal;
+    color: #666;
+    font-size: .9rem;
+}
+
+/* Search tab */
+.search-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+    .search-form input {
+        flex: 1;
+        padding: 12px;
+        font-size: 1rem;
+        font-family: inherit;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        box-sizing: border-box;
+    }
+
+    .search-form button {
+        padding: 12px 24px;
+        background: #2c3e50;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 1rem;
+    }
+
+        .search-form button:hover {
+            background: #1f2d3a;
+        }
+
+/* Ticket detail page */
+.ticket-detail {
+    width: 90%;
+    max-width: 900px;
+    margin: 30px auto;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 15px;
+    color: #2c3e50;
+    text-decoration: none;
+}
+
+.ticket-info {
+    height: auto;
+    margin-bottom: 30px;
+}
+
+    .ticket-info .meta {
+        color: #666;
+    }
+
+.closed-note {
+    padding: 12px 16px;
+    background: #f5f5f5;
+    border-radius: 6px;
+    color: #555;
+}
+
+/* Close / reopen */
+.status-form {
+    margin-top: 15px;
+}
+
+    .status-form button {
+        padding: 10px 20px;
+        background: #2c3e50;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+        .status-form button:hover {
+            background: #1f2d3a;
+        }
+
+/* Comments */
+.comments {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.comment {
+    padding: 12px 16px;
+    border-radius: 8px;
+    border-left: 4px solid #999;
+    background: #f5f5f5;
+}
+
+.comment-it {
+    background: #eaf2fb;
+    border-left-color: #2c7be5;
+}
+
+.comment-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: .9rem;
+}
+
+    .comment-head .time {
+        margin-left: auto;
+        color: #888;
+        font-size: .8rem;
+    }
+
+.comment p {
+    margin: 8px 0 0;
+}
+
+.badge {
+    background: #2c7be5;
+    color: #fff;
+    font-size: .7rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+.comment-form .form-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.comment-form input, .comment-form textarea {
+    padding: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.comment-form input {
+    flex: 1;
+}
+
+.comment-form textarea {
+    width: 100%;
+}
+
+.comment-form button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #2c3e50;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+    .comment-form button:hover {
+        background: #1f2d3a;
+    }
+
+/* New ticket form */
+.new-ticket-form label {
+    display: block;
+    margin: 12px 0 6px;
+    font-weight: bold;
+}
+
+.new-ticket-form input[type="text"], .new-ticket-form select {
+    width: 100%;
+}
+
+.new-ticket-form .form-row {
+    gap: 15px;
+}
+
+.new-ticket-form .form-col {
+    flex: 1;
+}
+
+.new-ticket-form select {
+    padding: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    background: #fff;
+}
+
+.form-error {
+    color: #b00020;
+    font-weight: bold;
+    margin: 8px 0;
+}
+
+/* Staff actions on the ticket page */
+.staff-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 15px;
+}
+
+    .staff-actions .status-form {
+        margin-top: 0;
+    }
+
+.button-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #2c3e50;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13.33px;
+}
+
+    .button-link:hover {
+        background: #1f2d3a;
+    }
+
+.new-ticket-form input[type="datetime-local"] {
+    width: 100%;
+    padding: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+/* Overdue notifications (staff dashboard) */
+.alerts {
+    width: 90%;
+    margin: 25px auto 0;
+    box-sizing: border-box;
+    padding: 15px 20px;
+    background: #fdecea;
+    border-left: 5px solid #c0392b;
+    border-radius: 6px;
+}
+
+    .alerts h2 {
+        margin: 0 0 10px;
+        font-size: 1.1rem;
+        color: #922b21;
+    }
+
+    .alerts ul {
+        margin: 0;
+        padding-left: 20px;
+    }
+
+    .alerts li {
+        margin: 6px 0;
+    }
+
+    .alerts a {
+        color: #922b21;
+        font-weight: bold;
+    }
+
+/* Read-only fields on the edit page */
+.readonly-field {
+    margin: 0 0 6px;
+    padding: 10px;
+    background: #f5f5f5;
+    border-radius: 6px;
+    color: #444;
+}
+
+/* Automatic "IT" notes (reassigned / reopened) - different from user and staff comments */
+.comment-system {
+    background: #fff8e1;
+    border-left: 4px dashed #e0a800;
+    font-style: italic;
+}
+
+    .comment-system .comment-head strong {
+        font-style: normal;
+        color: #8a6d00;
+        letter-spacing: .05em;
+    }
+
+/* Priority colors: a soft tint and a colored left edge */
+.card.priority-high {
+    border-left: 6px solid #d9534f;
+    background: #fdf3f2;
+}
+
+.card.priority-medium {
+    border-left: 6px solid #f0902e;
+    background: #fff6ec;
+}
+
+.card.priority-low {
+    border-left: 6px solid #e8c52f;
+    background: #fffbe8;
+}
+
+/* ---- Header: same look as the user dashboard's top bar ----
+   Uses "header.topbar" so it always wins over the old plain "header" rules,
+   no matter where this block is pasted. */
+:root {
+    --bg-main: #f1f5f9;
+    --text-main: #1e293b;
+    --card-bg: #ffffff;
+    --accent: #0863ae;
+    --accent-hover: #06518e;
+    --border-color: #e2e8f0;
+    --brand-orange: #ca5121;
+}
+
+header.topbar {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    background-color: var(--card-bg);
+    color: var(--text-main);
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+    header.topbar .brand {
+        text-decoration: none;
+        color: var(--brand-orange);
+    }
+
+    header.topbar .page-name {
+        font-size: 22px;
+        color: var(--accent);
+    }
+
+        header.topbar .page-name img {
+            vertical-align: baseline;
+        }
+
+    header.topbar .top-actions {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        position: relative;
+    }
+
+    header.topbar .three-lines {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: auto;
+        height: auto;
+        padding: 6px;
+        margin: 0;
+        background-color: transparent;
+        border: none;
+        border-radius: 8px;
+    }
+
+        header.topbar .three-lines:hover {
+            background-color: var(--border-color);
+        }
+
+        header.topbar .three-lines img {
+            width: 24px;
+            height: 24px;
+            display: block;
+        }
+
+    header.topbar .dropdown-menu {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 100%;
+        margin-top: 12px;
+        z-index: 1000;
+        min-width: 100px;
+        padding: 10px;
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+        header.topbar .dropdown-menu.show {
+            display: block !important;
+        }
+
+    header.topbar .bell-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        width: 100px;
+        height: 40px;
+        margin: 0 auto 8px;
+        padding: 0;
+        border: none;
+        border-radius: 50%;
+        background-color: var(--bg-main);
+        color: var(--text-main);
+        cursor: pointer;
+        font-family: inherit;
+    }
+
+        header.topbar .bell-button:hover {
+            background-color: var(--border-color);
+        }
+
+    header.topbar .bell-icon {
+        font-size: 22px;
+        line-height: 1;
+    }
+
+    header.topbar .count-badge {
+        display: inline-block;
+        background-color: #dc2626;
+        color: #fff;
+        font-size: 11px;
+        font-weight: bold;
+        line-height: 1;
+        padding: 2px 6px;
+        border-radius: 10px;
+    }
+
+    /* notification list under the bell */
+    header.topbar .notif-panel {
+        width: 290px;
+        max-width: 80vw;
+        max-height: 260px;
+        overflow-y: auto;
+        margin: 0 0 8px;
+        text-align: left;
+    }
+
+        header.topbar .notif-panel[hidden] {
+            display: none;
+        }
+
+    header.topbar .notif-item {
+        display: block;
+        padding: 8px 10px;
+        margin-bottom: 6px;
+        border-radius: 6px;
+        border-left: 4px solid #e8c52f;
+        background: #fffbe8;
+        color: var(--text-main);
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+        header.topbar .notif-item.notif-high {
+            border-left-color: #d9534f;
+            background: #fdf3f2;
+        }
+
+        header.topbar .notif-item.notif-medium {
+            border-left-color: #f0902e;
+            background: #fff6ec;
+        }
+
+        header.topbar .notif-item:hover {
+            filter: brightness(.97);
+        }
+
+        header.topbar .notif-item strong {
+            display: block;
+        }
+
+        header.topbar .notif-item span {
+            font-size: 12px;
+            color: #64748b;
+        }
+
+    header.topbar .notif-empty {
+        margin: 4px 0 8px;
+        font-size: 14px;
+        color: #64748b;
+        text-align: center;
+    }
+
+    header.topbar .logout-button {
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+        padding: 12px;
+        text-align: center;
+        background-color: var(--accent);
+        color: #fff;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 600;
+        border-radius: 6px;
+    }
+
+        header.topbar .logout-button:hover {
+            background-color: var(--accent-hover);
+        }
