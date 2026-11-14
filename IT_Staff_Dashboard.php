@@ -1,57 +1,139 @@
 <?php
-require 'db.php';
+session_start();
 
-$order = "ORDER BY FIELD(priority, 'high', 'medium', 'low'), created_at DESC";
-
-$stmt = $pdo->query("SELECT id, title, created_by, priority, status FROM tickets $order");
-$open = $closed = [];
-foreach ($stmt as $t) {
-    if ($t['status'] === 'open') $open[] = $t; else $closed[] = $t;
+if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'staff') {
+    header('Location: index.php');
+    exit();
 }
 
-// Search across ALL tickets (open and closed)
-$q = trim($_GET['q'] ?? '');
+require_once __DIR__ . '/config.php';
+
+if (empty($_SESSION['staff_dashboard_csrf'])) {
+    $_SESSION['staff_dashboard_csrf'] = bin2hex(random_bytes(32));
+}
+
+$updateError = '';
+$postedTicketId = $_POST['ticket_id'] ?? '';
+$selectedTicketId = 0;
+
+if (is_string($postedTicketId) && ctype_digit($postedTicketId)) {
+    $selectedTicketId = (int) $postedTicketId;
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $submittedToken = $_POST['csrf_token'] ?? '';
+    $newStatus = $_POST['status'] ?? '';
+    $allowedStatuses = ['open', 'in_progress', 'resolved', 'closed'];
+
+    if (
+        !is_string($submittedToken) ||
+        !hash_equals($_SESSION['staff_dashboard_csrf'], $submittedToken) ||
+        !is_string($newStatus) ||
+        !in_array($newStatus, $allowedStatuses, true) ||
+        $selectedTicketId < 1
+    ) {
+        http_response_code(400);
+        $updateError = 'The ticket update could not be validated. Please try again.';
+    } else {
+        $updateStatement = $conn->prepare('UPDATE tickets SET status = ? WHERE id = ?');
+        $updateStatement->bind_param('si', $newStatus, $selectedTicketId);
+        $updateStatement->execute();
+
+        header('Location: IT_Staff_Dashboard.php?ticket_id=' . $selectedTicketId . '&updated=1');
+        exit();
+    }
+}
+
+$order = "ORDER BY FIELD(t.priority, 'high', 'medium', 'low'), t.created_at DESC";
+$ticketFields = "t.id, t.title, u.name AS created_by, t.priority, t.status";
+$ticketSource = "FROM tickets t LEFT JOIN users_staff u ON u.id = t.user_id";
+
+$openStatement = $conn->prepare(
+    "SELECT $ticketFields $ticketSource
+     WHERE t.status IN ('open', 'in_progress') $order"
+);
+$openStatement->execute();
+$open = $openStatement->get_result()->fetch_all(MYSQLI_ASSOC);
+
+$closedStatement = $conn->prepare(
+    "SELECT $ticketFields $ticketSource
+     WHERE t.status NOT IN ('open', 'in_progress') $order"
+);
+$closedStatement->execute();
+$closed = $closedStatement->get_result()->fetch_all(MYSQLI_ASSOC);
+
+$queryValue = $_GET['q'] ?? '';
+$q = is_string($queryValue) ? trim($queryValue) : '';
 $results = [];
 if ($q !== '') {
-    // escape LIKE wildcards so a typed % or _ is searched literally
     $like = '%' . addcslashes($q, '\\%_') . '%';
-    $s = $pdo->prepare(
-        "SELECT id, title, created_by, priority, status FROM tickets
-         WHERE title LIKE ? OR description LIKE ? OR created_by LIKE ? OR id = ?
+    $ticketId = ctype_digit($q) ? (int) $q : 0;
+    $searchStatement = $conn->prepare(
+        "SELECT $ticketFields $ticketSource
+         WHERE (t.title LIKE ? OR t.description LIKE ? OR u.name LIKE ? OR t.id = ?)
          $order"
     );
-    $s->execute([$like, $like, $like, ctype_digit($q) ? (int)$q : 0]);
-    $results = $s->fetchAll();
+    $searchStatement->bind_param('sssi', $like, $like, $like, $ticketId);
+    $searchStatement->execute();
+    $results = $searchStatement->get_result()->fetch_all(MYSQLI_ASSOC);
 }
 
-// Same card markup as the original page, wrapped in a link to the detail page
-function renderCards(array $list, bool $showStatus = false) {
+$ticketQueryValue = $_GET['ticket_id'] ?? '';
+if (is_string($ticketQueryValue) && ctype_digit($ticketQueryValue)) {
+    $selectedTicketId = (int) $ticketQueryValue;
+}
+
+$selectedTicket = null;
+if ($selectedTicketId > 0) {
+    $detailStatement = $conn->prepare(
+        'SELECT t.id, t.title, t.category, t.description, t.priority, t.status,
+                t.dueDate, t.assignedTo, t.created_at, u.name AS created_by
+         FROM tickets t
+         LEFT JOIN users_staff u ON u.id = t.user_id
+         WHERE t.id = ?'
+    );
+    $detailStatement->bind_param('i', $selectedTicketId);
+    $detailStatement->execute();
+    $selectedTicket = $detailStatement->get_result()->fetch_assoc();
+
+    if (!$selectedTicket) {
+        http_response_code(404);
+    }
+}
+
+function escapeHtml(string $value): string
+{
+    return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
+}
+
+function renderCards(array $list, bool $showStatus = false): void
+{
     foreach ($list as $ticket): ?>
-        <a class="card-link" href="ticket.php?id=<?= (int)$ticket['id'] ?>">
-        <div class="card">
+        <a class="card-link" href="IT_Staff_Dashboard.php?ticket_id=<?= (int) $ticket['id'] ?>">
+        <article class="card">
 
             <h3>
-                <?php echo e($ticket["title"]); ?>
+                <?= escapeHtml($ticket['title']) ?>
                 <?php if ($showStatus): ?>
-                    <small>(<?php echo e($ticket["status"]); ?>)</small>
+                    <small>(<?= escapeHtml($ticket['status']) ?>)</small>
                 <?php endif; ?>
             </h3>
 
             <p>
                 Created By:
-                <?php echo e($ticket["created_by"]); ?>
+                <?= escapeHtml($ticket['created_by'] ?? 'Unknown user') ?>
             </p>
 
             <p>
-                <?php echo e($ticket["priority"]); ?>
+                <?= escapeHtml($ticket['priority']) ?>
             </p>
 
-        </div>
+        </article>
         </a>
     <?php endforeach;
 }
 ?>
-<DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -66,10 +148,53 @@ function renderCards(array $list, bool $showStatus = false) {
 
 <body>
 
-
 <header>
     <h1>UTA IT Support</h1>
 </header>
+
+<?php if ($selectedTicket): ?>
+    <section class="ticket-detail">
+        <a class="back-link" href="IT_Staff_Dashboard.php">&larr; Back to tickets</a>
+        <?php if (isset($_GET['updated'])): ?>
+            <p role="status">Ticket status updated.</p>
+        <?php endif; ?>
+        <?php if ($updateError !== ''): ?>
+            <p role="alert"><?= escapeHtml($updateError) ?></p>
+        <?php endif; ?>
+        <article class="card ticket-info">
+            <h2><?= escapeHtml($selectedTicket['title']) ?></h2>
+            <p>Created by <?= escapeHtml($selectedTicket['created_by'] ?? 'Unknown user') ?></p>
+            <p>Category: <?= escapeHtml($selectedTicket['category']) ?></p>
+            <p>Priority: <?= escapeHtml($selectedTicket['priority']) ?></p>
+            <p>Status: <?= escapeHtml($selectedTicket['status']) ?></p>
+            <p>Created: <?= escapeHtml($selectedTicket['created_at']) ?></p>
+            <?php if ($selectedTicket['dueDate'] !== null): ?>
+                <p>Due: <?= escapeHtml($selectedTicket['dueDate']) ?></p>
+            <?php endif; ?>
+            <?php if ($selectedTicket['assignedTo'] !== null && $selectedTicket['assignedTo'] !== ''): ?>
+                <p>Assigned to: <?= escapeHtml($selectedTicket['assignedTo']) ?></p>
+            <?php endif; ?>
+            <h3>Description</h3>
+            <p><?= nl2br(escapeHtml($selectedTicket['description'])) ?></p>
+            <form method="post" action="IT_Staff_Dashboard.php?ticket_id=<?= (int) $selectedTicket['id'] ?>">
+                <input type="hidden" name="csrf_token" value="<?= escapeHtml($_SESSION['staff_dashboard_csrf']) ?>">
+                <input type="hidden" name="ticket_id" value="<?= (int) $selectedTicket['id'] ?>">
+                <label for="ticketStatus">Update status</label>
+                <select id="ticketStatus" name="status">
+                    <?php foreach (['open', 'in_progress', 'resolved', 'closed'] as $status): ?>
+                        <option value="<?= $status ?>" <?= $selectedTicket['status'] === $status ? 'selected' : '' ?>>
+                            <?= escapeHtml(ucwords(str_replace('_', ' ', $status))) ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+                <button type="submit">Save status</button>
+            </form>
+        </article>
+    </section>
+<?php elseif ($selectedTicketId > 0): ?>
+    <p role="alert">Ticket not found.</p>
+<?php endif; ?>
+
 <!-- Tab links -->
 <div class="tab">
   <button class="tablinks" onclick="openCity(event, 'Open')">Open Tickets</button>
@@ -90,7 +215,7 @@ function renderCards(array $list, bool $showStatus = false) {
 </div>
 
 <div id="Closed" class="tabcontent">
-  <div class="Cards">
+  <div class="cards">
   <h2>Closed Tickets</h2>
 
         <?php renderCards($closed); ?>
@@ -102,14 +227,14 @@ function renderCards(array $list, bool $showStatus = false) {
 <div id="Search" class="tabcontent">
   <h3>Search</h3>
 
-  <form method="get" action="index.php" class="search-form">
-      <input type="text" name="q" value="<?= e($q) ?>" placeholder="Search by title, description, name or ticket number" required>
+  <form method="get" action="IT_Staff_Dashboard.php" class="search-form">
+  <input type="text" name="q" value="<?= escapeHtml($q) ?>" placeholder="Search by title, description, name or ticket number" required>
       <button type="submit">Search</button>
   </form>
 
   <?php if ($q !== ''): ?>
       <div class="cards">
-          <h2><?= count($results) ?> result<?= count($results) === 1 ? '' : 's' ?> for "<?= e($q) ?>"</h2>
+          <h2><?= count($results) ?> result<?= count($results) === 1 ? '' : 's' ?> for "<?= escapeHtml($q) ?>"</h2>
           <?php renderCards($results, true); ?>
       </div>
   <?php endif; ?>
