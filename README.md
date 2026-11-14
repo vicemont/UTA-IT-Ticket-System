@@ -2,7 +2,7 @@
 
 ## Database setup
 
-Create a MySQL/MariaDB database named `users_staff_db`, then import `users_staff.sql`.
+Create a MySQL/MariaDB database named `users_staff_db` and `ticket_comments`, then import `users_staff.sql`.
 The SQL file creates the user and ticket tables for a new database. If you already
 have a `tickets` table, run `migrations/001_add_ticket_user_id.sql` once to add
 ticket ownership. Existing tickets remain unassigned; new tickets are associated
