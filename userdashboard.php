@@ -15,6 +15,7 @@ if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'user') {
     <link rel="stylesheet" href="css/userdashboard.css">
     <script src="js/userdashboard.js" defer></script>
     <script src="js/userdashboard-menu.js" defer></script>
+    <script src="user-comments.js" defer></script>
 </head>
 <body>
     <header class ="topbar">

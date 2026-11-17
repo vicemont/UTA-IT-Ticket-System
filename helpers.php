@@ -81,6 +81,24 @@ function staffNames(mysqli $conn): array {
 ------------------------------------------------------------------- */
 const OVERDUE_GRACE_HOURS = ['high' => 24, 'medium' => 36, 'low' => 48];
 
+/* Test mode (see notification_test.php): the tickets that page creates alert after a few
+   SECONDS instead. It only affects the logged-in staff member who started the test, only
+   their test tickets, and switches itself off after 10 minutes. */
+const NOTIFICATION_TEST_SECONDS = ['high' => 3, 'medium' => 6, 'low' => 10];
+
+function notificationTestActive(): bool {
+    return ($_SESSION['notif_test_until'] ?? 0) > time();
+}
+
+// How long after the due date a ticket's notification appears
+function graceSeconds(string $priority, int $ticketId = 0): int {
+    if ($ticketId > 0 && notificationTestActive()
+        && in_array($ticketId, array_map('intval', array_column($_SESSION['notif_test'] ?? [], 'id')), true)) {
+        return NOTIFICATION_TEST_SECONDS[$priority] ?? 10;
+    }
+    return (OVERDUE_GRACE_HOURS[$priority] ?? 48) * 3600;
+}
+
 // Active tickets whose grace period has run out. Shows tickets assigned to
 // $myName plus unassigned ones.
 function overdueAlerts(mysqli $conn, string $myName): array {
@@ -94,7 +112,7 @@ function overdueAlerts(mysqli $conn, string $myName): array {
     foreach ($rows as $r) {
         $due = strtotime($r['dueDate']);
         if ($due === false) continue;
-        $notifyAt = $due + (OVERDUE_GRACE_HOURS[$r['priority']] ?? 48) * 3600;
+        $notifyAt = $due + graceSeconds($r['priority'], (int)$r['id']);
         if ($now < $notifyAt) continue;
         if ($r['assignedTo'] !== null && $r['assignedTo'] !== '' && $r['assignedTo'] !== $myName) continue;
         $r['overdue_secs'] = $now - $due;
@@ -106,6 +124,8 @@ function overdueAlerts(mysqli $conn, string $myName): array {
 }
 
 function formatOverdue(int $secs): string {
+    if ($secs < 60)   return max($secs, 0) . ' sec';
+    if ($secs < 3600) return intdiv($secs, 60) . ' min';
     $d = intdiv($secs, 86400);
     $h = intdiv($secs % 86400, 3600);
     if ($d > 0) return $d . ' day' . ($d === 1 ? '' : 's') . ($h ? " $h hr" : '');
